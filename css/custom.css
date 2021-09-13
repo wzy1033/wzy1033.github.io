@@ -1,18 +1,10 @@
 /* 首页字体 */
 @font-face {
     font-family:'song';
-    src:url('/Users/wuzhenyang2002/font/花园明朝体HanaMinA.TTF'); /* 修改成你的字体 */
+    src:url('/Users/wuzhenyang2002/font/方正书宋简体.TTF'); /* 修改成你的字体 */
     font-display:swap
 }
-h1#site-title {
-    font-family:song!important
-}
-span#subtitle {
-    font-family:song!important
-}
-a#site-name {
-    font-family:song!important
-}
+
 /* 页脚透明 */
 #footer {
     background: rgba(255,255,255,.15);
