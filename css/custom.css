@@ -1,7 +1,7 @@
 /* 首页字体 */
 @font-face {
     font-family:'song';
-    src:url('/Users/wuzhenyang2002/font/方正书宋简体.TTF'); /* 修改成你的字体 */
+    src:url('/font/花园明朝体HanaMinA.TTF'); /* 修改成你的字体 */
     font-display:swap
 }
 
