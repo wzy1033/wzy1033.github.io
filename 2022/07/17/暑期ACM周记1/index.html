@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>22暑期ACM集训周记01 | Serein</title><meta name="keywords" content="嘿嘿"><meta name="author" content="吴振扬"><meta name="copyright" content="吴振扬"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="简单数学&#x2F;字符串&#x2F;枚举">
+<meta property="og:type" content="article">
+<meta property="og:title" content="22暑期ACM集训周记01">
+<meta property="og:url" content="http://example.com/2022/07/17/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B01/index.html">
+<meta property="og:site_name" content="Serein">
+<meta property="og:description" content="简单数学&#x2F;字符串&#x2F;枚举">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/noritake/12.jpg">
+<meta property="article:published_time" content="2022-07-17T15:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-01T16:41:04.339Z">
+<meta property="article:author" content="吴振扬">
+<meta property="article:tag" content="嘿嘿">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/noritake/12.jpg"><link rel="shortcut icon" href="/img/noritake/da1.jpg"><link rel="canonical" href="http://example.com/2022/07/17/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B01/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a448fa19cb6abe47b4e5f89922820c23";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 吴振扬","link":"链接: ","source":"来源: Serein","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '22暑期ACM集训周记01',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-02 00:41:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/mainColor/heoMainColor.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/404/404.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Serein" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book-open"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fas fa-compass"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E5%85%B3%E4%BA%8E%E6%88%91/%E5%85%B3%E4%BA%8E/"><i class="fa-fw fas fa-address-card"></i><span> 本站</span></a></li><li><a class="site-page child" href="/%E5%9B%BE%E5%BA%93/%E6%91%84%E5%BD%B1/"><i class="fa-fw fas fa-images"></i><span> 影集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Serein</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book-open"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fas fa-compass"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E5%85%B3%E4%BA%8E%E6%88%91/%E5%85%B3%E4%BA%8E/"><i class="fa-fw fas fa-address-card"></i><span> 本站</span></a></li><li><a class="site-page child" href="/%E5%9B%BE%E5%BA%93/%E6%91%84%E5%BD%B1/"><i class="fa-fw fas fa-images"></i><span> 影集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">22暑期ACM集训周记01</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-07-17T15:00:00.000Z" title="发表于 2022-07-17 23:00:00">2022-07-17</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-01T16:41:04.339Z" title="更新于 2022-09-02 00:41:04">2022-09-02</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.7k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>10分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="22暑期ACM集训周记01"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="一、第一周学习总结表"><a href="#一、第一周学习总结表" class="headerlink" title="一、第一周学习总结表"></a>一、第一周学习总结表</h1><ul>
+<li><h4 id="本周学习完成情况"><a href="#本周学习完成情况" class="headerlink" title="本周学习完成情况"></a>本周学习完成情况</h4><p>| Contest                                                                   | 完成情况 |<br>| ————————————————————————————————————- | ———— |<br>| 数组和字符串进阶练习                                                      | 11/13    |<br>| <a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn/contest/503259">简单数学题、数组字符串练习</a> | 13/13    |<br>| <a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn/contest/503256">ACM入门练习-hdu</a>            | 13/13    |<br>| <a target="_blank" rel="noopener" href="https://vjudge.csgrandeur.cn/contest/503258"> 枚举算法练习</a>              | 7/7      |</p>
+</li>
+<li><h4 id="个人小结"><a href="#个人小结" class="headerlink" title="个人小结"></a>个人小结</h4><ol>
+<li><p><strong>个人感悟</strong></p>
+<p>经过一周的训练，收获颇多。题目虽然不难，但是对于英文的快速阅读能力，和不同OJ平台的输入输出的考验是前所未有的。每次写题不再是使用单纯纯暴力写法，更多的会再一开始就去分析题目背后的真正含义，将其转换成一个较为熟悉的问题。</p>
+</li>
+</ol>
+</li>
+</ul>
+<h1 id="二、本周学习的新内容"><a href="#二、本周学习的新内容" class="headerlink" title="二、本周学习的新内容"></a>二、本周学习的新内容</h1><p>本以为第一周的内容都是已经了然于心的基础知识，没想到在刷题中也学到了许多未曾注意的细节。</p>
+<ul>
+<li>对于EOF输入结尾的题目可以使用<code>while(~scanf(&quot;%d&quot;,&amp;n));</code>来处理</li>
+<li>OJ上浏览大佬代码，学会了使用<code>ios::sync_with_stdio(false);cin.tie(0);</code>来加快io流中cin，cout的读写速度</li>
+<li><p>学会了使用</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">clock start,end;</span><br><span class="line">start=<span class="built_in">clock</span>();</span><br><span class="line">end=<span class="built_in">clock</span>();</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;Time used = %.2lf\n&quot;</span>, (<span class="type">double</span>)(sta) / CLOCKS_PER_SEC);</span><br></pre></td></tr></table></figure>
+<p>来输出程序花费的时间</p>
+</li>
+<li>熟练掌握了对拍来检查程序与标程的区别，从而检查出自己代码的错误之处<br>使用<code>freopen(&quot;3output.out&quot;,&quot;w&quot;,stdout);freopen(&quot;1input.in&quot;,&quot;r&quot;,stdin);</code>输出重定向至文件，检查不同代码之间的区别</li>
+<li>对于询问次数多，复杂度高的问题，用打表做更方便</li>
+<li>学会了Joseph的递推公式为$f(N,M)=(f(N−1,M)+M)modN$</li>
+</ul>
+<h1 id="三、题解一览"><a href="#三、题解一览" class="headerlink" title="三、题解一览"></a>三、题解一览</h1><h2 id="1-ACM入门练习-I-Download-Manager"><a href="#1-ACM入门练习-I-Download-Manager" class="headerlink" title="1.ACM入门练习- I - Download Manager"></a>1.ACM入门练习- I - Download Manager</h2><p><a target="_blank" rel="noopener" href="https://vjudge.net/contest/503256#problem/I">ACM入门练习-hdu - Virtual Judge (vjudge.net)</a></p>
+<h3 id="题目标签"><a href="#题目标签" class="headerlink" title="题目标签"></a>题目标签</h3><p>数学；技巧</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>本题要求我们模拟一个下载器，根据输入的最大宽带B，和同时下载文件数n作为限制条件。</p>
+<p>针对已给出文件大小和完成进度的多少，计算总任务完成的所需时间。</p>
+<p>下载器会根据如下规律下载文件：</p>
+<ol>
+<li>优先挑选大小最小的n个文件，如果文件大小相同则先选择完成进度大的</li>
+<li>一个文件完成后，即开始下一个文件的下载，速度平均分配给每个文件</li>
+<li>如果少于n个文件，那么速度也平均分配给n个文件</li>
+</ol>
+<h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><p>本题乍一看下，以为是个模拟题，操作步骤极为繁琐。但其实仔细分析，推导出背后的原理，会发现这题非常的简单。</p>
+<p>题目要求我们求出的是下载的时间，而难点就在于不同的文件完成进度不一样，大小也不一样。如果用结构体来模拟下载的文件，并循环直至文件全部下载好，这将花费大量的精力在编写运算条件上。</p>
+<p>而如果我们不从文件出发，换个角度从下载器下载的大小出发，问题就会变得简单。</p>
+<p>根据推导我们可以发现</p>
+<ul>
+<li>假如有三个文件时，每个文件的下载速度是总文件大小总共是</li>
+</ul>
+<script type="math/tex; mode=display">
+3*时间*\frac{速度}{3}</script><ul>
+<li>假如有两个文件时，每个文件的下载速度是总文件大小总共是</li>
+</ul>
+<script type="math/tex; mode=display">
+2*时间*\frac{速度}{2}</script><ul>
+<li>假如有n个文件时，每个文件的下载速度是总文件大小总共是</li>
+</ul>
+<script type="math/tex; mode=display">
+n*时间*\frac{速度}{n}</script><p>我们发现无论多少个文件同时下载，下载器的下载总速度是不变的，即</p>
+<script type="math/tex; mode=display">
+时间*速度</script><p>所以只需要将剩余未下载完的所有大小全部加起来再除以最大带宽速度即可</p>
+<h3 id="通过代码"><a href="#通过代码" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxnum 500005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 1000000007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T,m,maxn;</span><br><span class="line">        <span class="type">int</span> t=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(~<span class="built_in">scanf</span>(<span class="string">&quot;%d %d %d&quot;</span>,&amp;T,&amp;m,&amp;maxn))&#123;</span><br><span class="line">        <span class="keyword">if</span> (T==<span class="number">0</span> &amp;&amp; m==<span class="number">0</span> &amp;&amp; maxn==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">double</span> size;<span class="type">double</span> com;<span class="type">double</span> sum=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; T; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin&gt;&gt;size&gt;&gt;com;</span><br><span class="line">            sum+=size*(<span class="number">100</span>-com)*<span class="number">0.01</span>;<span class="comment">//总下载剩余量</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;Case %d: %.2lf\n\n&quot;</span>,t,sum/maxn);</span><br><span class="line">        t++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-数学、字符串-A-Joseph"><a href="#2-数学、字符串-A-Joseph" class="headerlink" title="2.数学、字符串 - A - Joseph"></a>2.数学、字符串 - A - Joseph</h2><blockquote>
+<p>约瑟夫环总结：<a target="_blank" rel="noopener" href="https://blog.csdn.net/mzpqq/article/details/124568918">https://blog.csdn.net/mzpqq/article/details/124568918</a></p>
+</blockquote>
+<h3 id="题目标签-1"><a href="#题目标签-1" class="headerlink" title="题目标签"></a>题目标签</h3><p>数学；打表</p>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个数字n，总共2n个人围成一圈，前n个坏人，后n个好人，求最m为几，使得踢出去的都是坏人</p>
+<h3 id="题目解析-1"><a href="#题目解析-1" class="headerlink" title="题目解析"></a>题目解析</h3><p>n很小所以可以直接枚举，打表输出</p>
+<p>根据递推公式$f(N,M)=(f(N−1,M)+M)%N$，枚举m，保证每次出列的人都是坏人，如果是坏人，则运行，如果是好人则退出枚举下一个</p>
+<h3 id="通过代码-1"><a href="#通过代码-1" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;numeric&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxnum 500005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 1000000007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="function">ll <span class="title">getf</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (ll i = n+<span class="number">1</span>;; i++)<span class="comment">//枚举第m个</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> all=<span class="number">2</span>*n;</span><br><span class="line">        <span class="type">bool</span> flag=<span class="literal">true</span>;</span><br><span class="line">        ll l=<span class="number">0</span>;    </span><br><span class="line">        <span class="keyword">while</span> (all&gt;n)</span><br><span class="line">        &#123;</span><br><span class="line">            l=(l+i<span class="number">-1</span>)%all;</span><br><span class="line">            <span class="keyword">if</span> (l &lt; n)</span><br><span class="line">            &#123;</span><br><span class="line">                flag=<span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            all--;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (flag==<span class="literal">true</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> i;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    ll a[<span class="number">14</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; <span class="number">14</span>; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        a[i]=<span class="built_in">getf</span>(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span> (~<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n) &amp;&amp; n!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        cout&lt;&lt;a[n]&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="3-数学、字符串-B-Number-Sequence"><a href="#3-数学、字符串-B-Number-Sequence" class="headerlink" title="3.数学、字符串 - B - Number Sequence"></a>3.数学、字符串 - B - Number Sequence</h2><h3 id="题目标签-2"><a href="#题目标签-2" class="headerlink" title="题目标签"></a>题目标签</h3><p>数学；打表</p>
+<h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>给出A，B，N。根据给出的公式:</p>
+<p>$f(1) = 1, f(2) = 1, f(n) = (A <em> f(n - 1) + B </em> f(n - 2)) mod 7$</p>
+<p>求出f(N)</p>
+<h3 id="题目解析-2"><a href="#题目解析-2" class="headerlink" title="题目解析"></a>题目解析</h3><p>若使用传统方式一直递推，由于数据量过大，会导致最终超时。</p>
+<p>对小的数据进行打表，发现f(x)呈现一个循环，只需求出循环的循环节，再对N取模，即可求出f(n)</p>
+<p>根据同余定理，f(n)有7*7种取得方式，所以循环最多有49种情况，只需打表打至49个就可以了，甚至不需要求出循环节，只需要让其对49取余，超出循环节的部分也可以得到</p>
+<h3 id="通过代码-2"><a href="#通过代码-2" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;numeric&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxnum 500005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 1000000007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// freopen(&quot;1output.out&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line">    <span class="comment">// freopen(&quot;1input.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    <span class="type">int</span> a,b;</span><br><span class="line">    ll q;</span><br><span class="line">    <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        ll f[<span class="number">60</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">        f[<span class="number">1</span>]=<span class="number">1</span>;f[<span class="number">2</span>]=<span class="number">1</span>;</span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b&gt;&gt;q;</span><br><span class="line">        <span class="keyword">if</span> (a==<span class="number">0</span> &amp;&amp; b==<span class="number">0</span> &amp;&amp; q==<span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> i=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">3</span>; i &lt; <span class="number">55</span>; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            f[i]=((f[i<span class="number">-1</span>]*(a))+(f[i<span class="number">-2</span>]*(b)))%<span class="number">7</span>;<span class="comment">//公式递推打表</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;f[q%<span class="number">49</span>];</span><br><span class="line">        cout&lt;&lt;endl;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-枚举算法练习-G-Ants"><a href="#4-枚举算法练习-G-Ants" class="headerlink" title="4.枚举算法练习 - G - Ants"></a>4.枚举算法练习 - G - Ants</h2><h3 id="题目标签-3"><a href="#题目标签-3" class="headerlink" title="题目标签"></a>题目标签</h3><p>思维</p>
+<h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h3><p>一个树枝长lcm，上面有n个蚂蚁，蚂蚁以1cm/s的速度运动，蚂蚁相撞会往反方向走，给出n个蚂蚁的位置，但是不知道每只蚂蚁运动的方向，求出每个样例中，最后一只蚂蚁掉落的时间的最大值和最小值</p>
+<h3 id="题目解析-3"><a href="#题目解析-3" class="headerlink" title="题目解析"></a>题目解析</h3><p>如果单纯的枚举，则情况会变得非常复杂，并且没有蚂蚁数量是动态的很难用n个for循环嵌套</p>
+<p>即使用搜索也没有给出方向。</p>
+<p>而其实这题是考验我们的思维能力，两只蚂蚁相撞，再往反方向走，其实就是可以看成蚂蚁一直往一个方向走。由此题目就变得非常简单，只需要根据距离，不断比较，求出最大和最小的最后一只蚂蚁掉落时间即可</p>
+<h3 id="通过代码-3"><a href="#通过代码-3" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;numeric&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;ctime&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> max(x, y) x &gt; y ? x : y</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> min(x, y) x &lt; y ? x : y</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxnum 500005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 1000000007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> t;cin&gt;&gt;t;</span><br><span class="line">    <span class="keyword">while</span> (t--)</span><br><span class="line">    &#123;</span><br><span class="line">        ll l;<span class="type">int</span> n;</span><br><span class="line">        cin&gt;&gt;l&gt;&gt;n;</span><br><span class="line">        ll dis[<span class="number">999999</span>]=&#123;<span class="number">0</span>&#125;;<span class="comment">//初始化</span></span><br><span class="line">        ll minn=<span class="number">-1</span>;</span><br><span class="line">        ll maxn=<span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;   </span><br><span class="line">            cin&gt;&gt;dis[i];</span><br><span class="line">            <span class="type">int</span> fl,fr;</span><br><span class="line">            fl=l-dis[i];fr=dis[i];</span><br><span class="line">            <span class="type">int</span> mi=<span class="built_in">min</span>(fl,fr);</span><br><span class="line">            <span class="type">int</span> ma=<span class="built_in">max</span>(fl,fr);</span><br><span class="line">            minn=<span class="built_in">max</span>(minn,mi);<span class="comment">//求出最小值，虽然是最小值，但是也是最后一个的最小值，所以是max</span></span><br><span class="line">            maxn=<span class="built_in">max</span>(maxn,ma);<span class="comment">//求出最大值</span></span><br><span class="line">        &#125;</span><br><span class="line">        cout&lt;&lt;minn&lt;&lt;<span class="string">&quot; &quot;</span>&lt;&lt;maxn&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-AtCoder-Regular-Contest-144-A-Digit-Sum-of-2x"><a href="#5-AtCoder-Regular-Contest-144-A-Digit-Sum-of-2x" class="headerlink" title="5.AtCoder Regular Contest 144 - A -Digit Sum of 2x"></a>5.AtCoder Regular Contest 144 - A -<strong>Digit Sum of 2x</strong></h2><h3 id="题目标签-4"><a href="#题目标签-4" class="headerlink" title="题目标签"></a>题目标签</h3><p>思维；数学</p>
+<h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h3><p>给出函数f(n)，即求一个数的各个位数的和</p>
+<p>如$f(144)=1+4+4=9$</p>
+<p>给出一个正整数N，找到M使得$f(x)=N$ and$f (2x)=M$ ,M有多个答案，要求找到最大的</p>
+<p>再找出一个x，使得$f(x)=N$ and$f (2x)=M$ ,x有多个答案要求找出最小的</p>
+<h3 id="题目解析-4"><a href="#题目解析-4" class="headerlink" title="题目解析"></a>题目解析</h3><p>如果直接进行打表，问题将变得非常复杂。</p>
+<p>此时分析题面，发现要求如果2*x中有x的某一位&gt;5，则会导致2x，中的该为进位，导致和变小，所以要求找到的x的每一位都必须为小于5，而每一位都小于5，就能保证该数的2倍的各位求和不会变小，所以M=2N</p>
+<p>接下来要求找到能够组成M的最小的数x</p>
+<p>同上定理，要保证每个位的数都小于5，而小于5的数必须保证为最大，这样保证和不变的情况下，分出的位数为最小，这样求能求得的x才为最小的x。</p>
+<p>所以只要把M分解为k个4和分不下去后余下的一个数即可</p>
+<h3 id="通过代码-4"><a href="#通过代码-4" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> maxnum 500005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 1000000007</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// ios::sync_with_stdio(false);</span></span><br><span class="line">    <span class="comment">// cin.tie(0);</span></span><br><span class="line">    <span class="comment">// freopen(&quot;3output.out&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// freopen(&quot;1input.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    <span class="type">int</span> n;</span><br><span class="line">    cin&gt;&gt;n;</span><br><span class="line">    <span class="type">int</span> t=n%<span class="number">4</span>;<span class="comment">//余下的数</span></span><br><span class="line">    <span class="type">int</span> k=n/<span class="number">4</span>;<span class="comment">//有k个4</span></span><br><span class="line">    string s;</span><br><span class="line">    <span class="keyword">if</span>(t!=<span class="number">0</span>)&#123;</span><br><span class="line">        s+=<span class="built_in">char</span>(t+<span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">    &#125;<span class="comment">//如果余下的不是零，则再最后加上这个余下的数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; k; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        s+=<span class="string">&#x27;4&#x27;</span>;<span class="comment">//加上k个4</span></span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;<span class="number">2</span>*n&lt;&lt;endl&lt;&lt;s;</span><br><span class="line">    <span class="comment">// printf(&quot;Time used = %.2lf\n&quot;, (double)clock() / CLOCKS_PER_SEC);</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="http://example.com">吴振扬</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2022/07/17/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B01/">http://example.com/2022/07/17/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B01/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">Serein</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/noritake/12.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/01/20/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">算法学习日志01-前缀和与差分</div></div></a></div><div class="next-post pull-right"><a href="/2022/09/01/%E5%85%B3%E4%BA%8E/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/sheying/20.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">关于本站</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NDE4Mi8zMDY1NA=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">吴振扬</div><div class="author-info__description">知命不惧，日日自新</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://wzy2002.vercel.app/关于我/"><i class="fas fa-address-card"></i><span>关于本站</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wzy1033" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1033090568@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/23248208?from=search&amp;seid=17564098687180453698&amp;spm_id_from=333.337.0.0" target="_blank" title="bilibili"><i class="fas fa-tv"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wu-zhen-yang-64" target="_blank" title="Zhihu"><i class="fab fa-zhihu"></i></a></div></div><div class="card-widget contact me" id="contat me"><div class="item-headline"><i class="fab fa-weixin"></i><span>联系我</span></div><div class="item-content"><html><body><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/wechat.jpg" /><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.jsdelivr.net/gh/tzy13755126023/BLOG_SOURCE/theme_f/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock')
+    parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var flag = 0;
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_injector_config();
+  }
+  </script><script src="https://pv.sohu.com/cityjson?ie=utf-8"></script><script data-pjax src="https://unpkg.zhimg.com/hexo-butterfly-clock/lib/clock.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%AC%AC%E4%B8%80%E5%91%A8%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E8%A1%A8"><span class="toc-text">一、第一周学习总结表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E5%AD%A6%E4%B9%A0%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5"><span class="toc-text">本周学习完成情况</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E5%B0%8F%E7%BB%93"><span class="toc-text">个人小结</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9C%AC%E5%91%A8%E5%AD%A6%E4%B9%A0%E7%9A%84%E6%96%B0%E5%86%85%E5%AE%B9"><span class="toc-text">二、本周学习的新内容</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%A2%98%E8%A7%A3%E4%B8%80%E8%A7%88"><span class="toc-text">三、题解一览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-ACM%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0-I-Download-Manager"><span class="toc-text">1.ACM入门练习- I - Download Manager</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E6%95%B0%E5%AD%A6%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2-A-Joseph"><span class="toc-text">2.数学、字符串 - A - Joseph</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-1"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-1"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-1"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%95%B0%E5%AD%A6%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2-B-Number-Sequence"><span class="toc-text">3.数学、字符串 - B - Number Sequence</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-2"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-2"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-2"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%9E%9A%E4%B8%BE%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0-G-Ants"><span class="toc-text">4.枚举算法练习 - G - Ants</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-3"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-3"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-3"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-3"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-AtCoder-Regular-Contest-144-A-Digit-Sum-of-2x"><span class="toc-text">5.AtCoder Regular Contest 144 - A -Digit Sum of 2x</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-4"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-4"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-4"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-4"><span class="toc-text">通过代码</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/09/01/%E5%85%B3%E4%BA%8E/" title="关于本站"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/sheying/20.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="关于本站"/></a><div class="content"><a class="title" href="/2022/09/01/%E5%85%B3%E4%BA%8E/" title="关于本站">关于本站</a><time datetime="2022-09-01T04:56:24.811Z" title="发表于 2022-09-01 12:56:24">2022-09-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/07/17/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B01/" title="22暑期ACM集训周记01"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="22暑期ACM集训周记01"/></a><div class="content"><a class="title" href="/2022/07/17/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B01/" title="22暑期ACM集训周记01">22暑期ACM集训周记01</a><time datetime="2022-07-17T15:00:00.000Z" title="发表于 2022-07-17 23:00:00">2022-07-17</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/01/20/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/" title="算法学习日志01-前缀和与差分"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="算法学习日志01-前缀和与差分"/></a><div class="content"><a class="title" href="/2022/01/20/%E5%89%8D%E7%BC%80%E5%92%8C%E4%B8%8E%E5%B7%AE%E5%88%86/" title="算法学习日志01-前缀和与差分">算法学习日志01-前缀和与差分</a><time datetime="2022-01-20T15:42:00.000Z" title="发表于 2022-01-20 23:42:00">2022-01-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/04/%E8%AE%B0%E5%BD%95hexo%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BC%98%E5%8C%96/" title="记录基于hexo的个人博客搭建（未完成）"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/20.jpeg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="记录基于hexo的个人博客搭建（未完成）"/></a><div class="content"><a class="title" href="/2021/09/04/%E8%AE%B0%E5%BD%95hexo%E6%90%AD%E5%BB%BA%E4%B8%8E%E4%BC%98%E5%8C%96/" title="记录基于hexo的个人博客搭建（未完成）">记录基于hexo的个人博客搭建（未完成）</a><time datetime="2021-09-03T17:54:00.000Z" title="发表于 2021-09-04 01:54:00">2021-09-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/09/03/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/" title="测试文档"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/7.1.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="测试文档"/></a><div class="content"><a class="title" href="/2021/09/03/%E6%B5%8B%E8%AF%95%E6%96%87%E6%A1%A3/" title="测试文档">测试文档</a><time datetime="2021-09-03T03:23:00.000Z" title="发表于 2021-09-03 11:23:00">2021-09-03</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By 吴振扬</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://wzy1033.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script async src="//at.alicdn.com/t/font_2804883_dzrzjhfbfv.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
