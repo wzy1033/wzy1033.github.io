@@ -1,0 +1,484 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>22暑期ACM集训周记04 | Serein</title><meta name="keywords" content="算法周记"><meta name="author" content="吴振扬"><meta name="copyright" content="吴振扬"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="动态规划&#x2F;高精度&#x2F;树">
+<meta property="og:type" content="article">
+<meta property="og:title" content="22暑期ACM集训周记04">
+<meta property="og:url" content="http://example.com/2022/08/07/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B04/index.html">
+<meta property="og:site_name" content="Serein">
+<meta property="og:description" content="动态规划&#x2F;高精度&#x2F;树">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/noritake/12.jpg">
+<meta property="article:published_time" content="2022-08-07T15:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-11T14:27:48.154Z">
+<meta property="article:author" content="吴振扬">
+<meta property="article:tag" content="算法周记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/noritake/12.jpg"><link rel="shortcut icon" href="/img/noritake/da1.jpg"><link rel="canonical" href="http://example.com/2022/08/07/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B04/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a448fa19cb6abe47b4e5f89922820c23";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 吴振扬","link":"链接: ","source":"来源: Serein","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '22暑期ACM集训周记04',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-11 22:27:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/mainColor/heoMainColor.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/404/404.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Serein" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book-open"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fas fa-compass"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E5%85%B3%E4%BA%8E%E6%88%91/"><i class="fa-fw fas fa-address-card"></i><span> 本站</span></a></li><li><a class="site-page child" href="/%E5%9B%BE%E5%BA%93/%E6%91%84%E5%BD%B1/"><i class="fa-fw fas fa-images"></i><span> 影集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Serein</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book-open"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fas fa-compass"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E5%85%B3%E4%BA%8E%E6%88%91/"><i class="fa-fw fas fa-address-card"></i><span> 本站</span></a></li><li><a class="site-page child" href="/%E5%9B%BE%E5%BA%93/%E6%91%84%E5%BD%B1/"><i class="fa-fw fas fa-images"></i><span> 影集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">22暑期ACM集训周记04</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-07T15:00:00.000Z" title="发表于 2022-08-07 23:00:00">2022-08-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-11T14:27:48.154Z" title="更新于 2022-09-11 22:27:48">2022-09-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">4.2k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>17分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="22暑期ACM集训周记04"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="一、第四周学习总结表"><a href="#一、第四周学习总结表" class="headerlink" title="一、第四周学习总结表"></a>一、第四周学习总结表</h1><ul>
+<li><h3 id="本周学习完成情况"><a href="#本周学习完成情况" class="headerlink" title="本周学习完成情况"></a>本周学习完成情况</h3><table border="1">
+<tr>
+<th>Contest</th>
+<th>完成情况</th>
+</tr>
+<tr>
+<td>LCS和LIS</td>
+<td>6/9</td>
+</tr>
+<tr>
+<td>动态规划基础 </td>
+<td>13/22</td>
+</tr>
+<tr>
+<td>高精度计算</td>
+<td>10/10 </td>
+</tr>
+<tr>
+<td>简单递推练习</td>
+<td>13/13</td>
+</tr>
+<tr>
+  <td>树和二叉树</td>
+  <td>6/6</td>
+</tr>
+<tr>
+  <td>牛客</td>
+  <td>3/10</td>
+</tr>
+<tr>
+  <td>Atcoder</td>
+  <td>4/8</td>
+</tr>
+<tr>
+  <td><b>总计</b></td>
+  <td><b>55/78</b></td>
+</td>
+</tr>
+</table>
+</li>
+<li><h3 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h3><p>​        本周开始，明显感觉到了难度的提升，每天的题目开始做不完了。而第二天又有新的题目，也没来的及去补题。难点主要在动态规划的思想难以真正的掌握，每道题目如果没有预先学习过相应的模型，具体算法分类。如没有学习区间DP之前，自己完全想不出来怎么写石子合并问题。如果在比赛过程中，遇到此类问题，将毫无下手空间。希望下周开始能把本周没有补完的动态规划补完，并学习更多的动态规划模型。</p>
+</li>
+</ul>
+<h1 id="二、本周学习新内容"><a href="#二、本周学习新内容" class="headerlink" title="二、本周学习新内容"></a>二、本周学习新内容</h1><h3 id="1-inline函数"><a href="#1-inline函数" class="headerlink" title="1.inline函数"></a>1.inline函数</h3><p>inline定义类的内联函数，函数的代码被放入符号表中，在使用时直接进行替换（像宏一样展开）没有了调用的开销，效率也高了</p>
+<p>如果需要多次调用，如快读的时候可以加上inline</p>
+<h3 id="2-位运算技巧"><a href="#2-位运算技巧" class="headerlink" title="2.位运算技巧"></a>2.位运算技巧</h3><p>判断一个整数x是否为2的n次方</p>
+<p>x &amp; (x-1) == 0</p>
+<h3 id="3-算位数"><a href="#3-算位数" class="headerlink" title="3.算位数"></a>3.算位数</h3><p>一个数如果能表示为10^n^那么，他的位数，很显然就是int(n+1)</p>
+<p>如：$10^1=10$位数为2.<br>        $10^{log_{10}20}=20$,$log_{10}20=1.3$ .位数为2</p>
+<p>所以一个数为x^k^次方</p>
+<p>则这个数的位数即为log~10~</p>
+<h3 id="4-nullptr和NULL"><a href="#4-nullptr和NULL" class="headerlink" title="4.nullptr和NULL"></a>4.nullptr和NULL</h3><ul>
+<li>NULL是一个宏定义，在c和c++中的定义不同，c中NULL为（void*)0,而c++中NULL为整数0</li>
+</ul>
+<p>​        所以在c++中int *p=NULL; 实际表示将指针P的值赋为0，而c++中当一个指针的值为0时，认为指针为空指针</p>
+<ul>
+<li>nullptr是一个字面值常量，类型为std::nullptr_t,空指针常数可以转换为任意类型的指针类型</li>
+</ul>
+<h3 id="5-快速求组合数"><a href="#5-快速求组合数" class="headerlink" title="5.快速求组合数"></a>5.快速求组合数</h3><ul>
+<li><h4 id="预处理阶乘逆元求组合数"><a href="#预处理阶乘逆元求组合数" class="headerlink" title="预处理阶乘逆元求组合数"></a>预处理阶乘逆元求组合数</h4><p>有取模条件，根据取模条件，如果模数是质数用费马小定理，用快速幂就可求逆元，否则用扩展欧几里得求逆元</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll N = <span class="number">3e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="type">const</span> ll MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">ll fac[N], ifac[N];</span><br><span class="line">ll dp[<span class="number">1000010</span>];</span><br><span class="line"><span class="comment">// a 为求逆元的数，b 为模数，运算完成后 x 就是在模 a 下的逆元</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">exgcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b, <span class="type">int</span> &amp;x, <span class="type">int</span> &amp;y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!b)</span><br><span class="line">	&#123;</span><br><span class="line">		x = <span class="number">1</span>, y = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">return</span> a;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> d = <span class="built_in">exgcd</span>(b, a % b, y, x);</span><br><span class="line">	y -= a / b * x;</span><br><span class="line">	<span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b, ll MOD)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)</span><br><span class="line">            res = <span class="number">1ll</span> * res * a % MOD;</span><br><span class="line">        a = <span class="number">1ll</span> * a * a % MOD;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">	fac[<span class="number">0</span>] = ifac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		fac[i] = <span class="number">1ll</span> * fac[i - <span class="number">1</span>] * i % MOD;</span><br><span class="line">		ifac[i] = <span class="number">1ll</span> * ifac[i - <span class="number">1</span>] * <span class="built_in">qpow</span>(i, MOD - <span class="number">2</span>, MOD) % MOD;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(ll a,ll b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a&lt;<span class="number">0</span> || b&lt;<span class="number">0</span> || a&lt;b) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">1ll</span> * fac[a] * ifac[b] % MOD * ifac[a - b] % MOD);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><h4 id="卢卡斯定理求组合数"><a href="#卢卡斯定理求组合数" class="headerlink" title="卢卡斯定理求组合数"></a>卢卡斯定理求组合数</h4><p>求大组合数<img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://latex.codecogs.com/gif.latex?C_%7Ba%7D%5Eb" alt="C_{a}^b">，a、b &gt; 1e10, and 模数 p 较小的情况下。求逆元根据p的情况来定，为质数可用费马小定理，否则用扩展欧几里得求逆元</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)</span><br><span class="line">            res = <span class="number">1ll</span> * res * a % MOD;</span><br><span class="line">        a = <span class="number">1ll</span> * a * a % MOD;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">C</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> res = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>, j = a; i &lt;= b; i++, j--)</span><br><span class="line">	&#123;</span><br><span class="line">		res = (ll)res * j % MOD;</span><br><span class="line">		res = (ll)res * <span class="built_in">qpow</span>(i, MOD - <span class="number">2</span>) % MOD;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">lucas</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (a &lt; MOD &amp;&amp; b &lt; MOD) <span class="keyword">return</span> <span class="built_in">C</span>(a, b);</span><br><span class="line">	<span class="keyword">return</span> (ll)<span class="built_in">C</span>(a % MOD, b % MOD) * <span class="built_in">lucas</span>(a / MOD, b / MOD) % MOD;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="三、题解一览"><a href="#三、题解一览" class="headerlink" title="三、题解一览"></a>三、题解一览</h1><h2 id="1-AtCoder-Beginner-Contest-261-D-Flipping-and-Bonus"><a href="#1-AtCoder-Beginner-Contest-261-D-Flipping-and-Bonus" class="headerlink" title="1.AtCoder Beginner Contest 261 - D - Flipping and Bonus"></a>1.AtCoder Beginner Contest 261 - D - Flipping and Bonus</h2><h3 id="题目标签"><a href="#题目标签" class="headerlink" title="题目标签"></a>题目标签</h3><p>DP</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>高桥君可以扔n次硬币，第<code>i</code>枚硬币面朝上加相应的得分<code>a[i]</code>，硬币面朝下则不加分</p>
+<p>此外还有一个奖励机制，即高桥君连续正面朝上<code>j</code>次可以得到<code>c[j]</code>的得分，但是一旦正面朝下，i就会清零</p>
+<p>请你算出高桥君最多能得到几分</p>
+<h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析`"></a>题目解析`</h3><p>本题使用动态规划的思想</p>
+<p>定义DP数组<code>dp[i][j]</code>，i代表第i次扔硬币，j代表这是第j次连胜，转移过程中取最大值</p>
+<p>当硬币面朝上时，$dp[i][j]=max(dp[i-1][j-1]+a[i]+c[j],dp[i][j])$</p>
+<p>当硬币面朝下时，$dp[i][0]=max(dp[i][0],dp[i-1][j])$</p>
+<p>硬币朝下的时候，取的就是前一次连胜为j时的得分的最大值，所以不会出现重复的情况</p>
+<h3 id="通过代码"><a href="#通过代码" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> dp[N][N];  </span><br><span class="line"><span class="type">int</span> a[N];  </span><br><span class="line"><span class="type">int</span> w[N];  </span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;  </span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) cin&gt;&gt;a[i];  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=m;i++)&#123;  </span><br><span class="line">        <span class="type">int</span> a,b;  </span><br><span class="line">        cin&gt;&gt;a&gt;&gt;b;  </span><br><span class="line">        w[a]=b;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=i;j++)&#123;  </span><br><span class="line">            <span class="comment">//这回合赢了  </span></span><br><span class="line">            dp[i][j]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>][j<span class="number">-1</span>]+w[j]+a[i],dp[i][j]);  </span><br><span class="line">            <span class="comment">//这回合输了  </span></span><br><span class="line">            dp[i][<span class="number">0</span>]=<span class="built_in">max</span>(dp[i<span class="number">-1</span>][j],dp[i][<span class="number">0</span>]);  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="type">int</span> ans=<span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">1</span>;j&lt;=n;j++)&#123;  </span><br><span class="line">        ans=<span class="built_in">max</span>(ans,dp[n][j]);  </span><br><span class="line">    &#125;  </span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-AtCoder-Beginner-Contest-261-E-Many-Operations"><a href="#2-AtCoder-Beginner-Contest-261-E-Many-Operations" class="headerlink" title="2.AtCoder Beginner Contest 261 - E - Many Operations"></a>2.AtCoder Beginner Contest 261 - E - Many Operations</h2><h3 id="题目标签-1"><a href="#题目标签-1" class="headerlink" title="题目标签"></a>题目标签</h3><p>位运算</p>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>一共有i次操作，每一次操作用一个ti和一个ai来改变x</p>
+<ul>
+<li>如果 ti=1, x=x&amp;a</li>
+<li>如果 ti=2, x=x|a</li>
+<li>如果 ti=3, x=x^a<br>现在进行n轮操作，<br>第i轮操作，将进行1,2,3…i−1,i次操作<br>询问每一轮操作后的x值，x是一直更新的</li>
+</ul>
+<h3 id="题目解析-1"><a href="#题目解析-1" class="headerlink" title="题目解析"></a>题目解析</h3><p>如果直接暴力方法，毫无意义问会超时</p>
+<p>问题的关键在于如何优化，让每一轮的操作，都能被保留下来，并进行下一次运算，这样就可以减少时间复杂度</p>
+<p>这里考虑二进制拆位，对每一轮的操作都记录并记录</p>
+<p>通过前缀和记录，可以求得</p>
+<h3 id="通过代码-1"><a href="#通过代码-1" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 2e5+10</span></span><br><span class="line"><span class="type">int</span> a[N];  </span><br><span class="line"><span class="type">int</span> oper[N];  </span><br><span class="line"><span class="type">int</span> pre[<span class="number">2</span>][<span class="number">30</span>][N];  </span><br><span class="line"><span class="type">int</span> ans[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++) cin&gt;&gt;oper[i]&gt;&gt;a[i];  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">30</span>;i++) pre[<span class="number">1</span>][i][<span class="number">0</span>]=<span class="number">1</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;<span class="number">30</span>;i++) pre[<span class="number">0</span>][i][<span class="number">0</span>]=<span class="number">0</span>;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">30</span>;j++)&#123;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;  </span><br><span class="line">            <span class="type">int</span> x=(a[i]&gt;&gt;j)&amp;<span class="number">1</span>;  </span><br><span class="line">            <span class="keyword">if</span>(oper[i]==<span class="number">1</span>)&#123;  </span><br><span class="line">                pre[<span class="number">1</span>][j][i]=pre[<span class="number">1</span>][j][i<span class="number">-1</span>]&amp;x;  </span><br><span class="line">                pre[<span class="number">0</span>][j][i]=pre[<span class="number">0</span>][j][i<span class="number">-1</span>]&amp;x;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(oper[i]==<span class="number">2</span>)&#123;  </span><br><span class="line">                pre[<span class="number">1</span>][j][i]=pre[<span class="number">1</span>][j][i<span class="number">-1</span>]|x;  </span><br><span class="line">                pre[<span class="number">0</span>][j][i]=pre[<span class="number">0</span>][j][i<span class="number">-1</span>]|x;  </span><br><span class="line">            &#125;  </span><br><span class="line">            <span class="keyword">else</span> &#123;  </span><br><span class="line">                pre[<span class="number">1</span>][j][i]=pre[<span class="number">1</span>][j][i<span class="number">-1</span>]^x;  </span><br><span class="line">                pre[<span class="number">0</span>][j][i]=pre[<span class="number">0</span>][j][i<span class="number">-1</span>]^x;  </span><br><span class="line">            &#125;  </span><br><span class="line">        &#125;  </span><br><span class="line">    &#125;</span><br><span class="line">    ans[<span class="number">0</span>]=c;  </span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;  </span><br><span class="line">        <span class="type">int</span> pres=ans[i<span class="number">-1</span>];  </span><br><span class="line">        <span class="type">int</span> now=<span class="number">0</span>;  </span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;<span class="number">30</span>;j++)&#123;  </span><br><span class="line">            <span class="type">int</span> x=(pres&gt;&gt;j)&amp;<span class="number">1</span>;  </span><br><span class="line">                <span class="keyword">if</span>(pre[x][j][i]) now+=(<span class="number">1</span>&lt;&lt;(j));  </span><br><span class="line">        &#125;  </span><br><span class="line">        ans[i]=now;  </span><br><span class="line">        cout&lt;&lt;ans[i]&lt;&lt;<span class="string">&quot;\n&quot;</span>; </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-AtCoder-Beginner-Contest-263-D-Left-Right-Operation"><a href="#3-AtCoder-Beginner-Contest-263-D-Left-Right-Operation" class="headerlink" title="3.AtCoder Beginner Contest 263 - D - Left Right Operation"></a>3.AtCoder Beginner Contest 263 - D - Left Right Operation</h2><h3 id="题目标签-2"><a href="#题目标签-2" class="headerlink" title="题目标签"></a>题目标签</h3><p>DP</p>
+<p>前缀和</p>
+<h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一个序列，以及数字LR</p>
+<p>你可以把任意前i个数字变成L</p>
+<p>也可以把任意后i个数字变成R</p>
+<p>求变完之后的最小值</p>
+<h3 id="题目解析-2"><a href="#题目解析-2" class="headerlink" title="题目解析"></a>题目解析</h3><p>可以将问题转换：</p>
+<p>改变数字再求最小值，也就是先找出所有改变的数字与原数字之差的和最小值，最后输出这个最小值+原数组的sum即可</p>
+<p>所以我们可以先开两个数组lnum和rnum，记录原数字分别和L，R的差</p>
+<p>然后对这些数字求前缀和/后缀和，并开一个数组dp，记录前/后i个前缀和的最小值</p>
+<p>最后取ldp[i]+rdp[i+1]的最小值即可</p>
+<p><strong>注意点：</strong></p>
+<ol>
+<li>数组的初始化ldp[0]和rdp[n+1]要初始化为0，表示一个数也不改变的情况，就是将原sum+0</li>
+<li>minn的初始化取0，这样可以保证如果改变完数字，比原来还大了。说明不用改变任何一个，也就是让minn=0</li>
+</ol>
+<h3 id="通过代码-2"><a href="#通过代码-2" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ios ios::sync_with_stdio(false), cin.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 200000+10</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 0x3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"><span class="comment">//前缀和和后缀和+dp</span></span><br><span class="line">ll num[N];</span><br><span class="line">ll lnum[N];</span><br><span class="line">ll rnum[N];</span><br><span class="line">ll lsum[N];</span><br><span class="line">ll rsum[N];</span><br><span class="line">ll ldp[N];</span><br><span class="line">ll rdp[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// freopen(&quot;3output.out&quot;,&quot;w&quot;,stdout);</span></span><br><span class="line">    <span class="comment">// freopen(&quot;1input.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line">    ll n, l, r;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lld %lld %lld&quot;</span>, &amp;n, &amp;l, &amp;r);</span><br><span class="line">    ll allsum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;num[i]);</span><br><span class="line">        allsum += num[i];</span><br><span class="line"></span><br><span class="line">        lnum[i] = l - num[i];</span><br><span class="line">        rnum[i] = r - num[i];</span><br><span class="line">    &#125;</span><br><span class="line">    ldp[<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">    rdp[n + <span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        lsum[i] = lsum[i - <span class="number">1</span>] + lnum[i];</span><br><span class="line">        ldp[i] = <span class="built_in">min</span>(ldp[i - <span class="number">1</span>], lsum[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = n; i &gt;= <span class="number">0</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        rsum[i] = rsum[i + <span class="number">1</span>] + rnum[i];</span><br><span class="line">        rdp[i] = <span class="built_in">min</span>(rdp[i + <span class="number">1</span>], rsum[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    ll minn = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        minn = <span class="built_in">min</span>(minn, rdp[i+<span class="number">1</span>] + ldp[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; allsum + minn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-哈理工暑假训练赛-F-奇怪的魔法"><a href="#4-哈理工暑假训练赛-F-奇怪的魔法" class="headerlink" title="4.哈理工暑假训练赛 - F - 奇怪的魔法"></a>4.哈理工暑假训练赛 - F - 奇怪的魔法</h2><h3 id="题目标签-3"><a href="#题目标签-3" class="headerlink" title="题目标签"></a>题目标签</h3><p>数论；求组合数</p>
+<h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h3><p>创造长度为n的单调非递减数组，<strong>每个数组需要消耗的魔力为数组的最大值</strong>，数组的最大值不超过K</p>
+<p>求所有不同数组的魔力值之和，对答案1e9+7取模</p>
+<h3 id="题目解析-3"><a href="#题目解析-3" class="headerlink" title="题目解析"></a>题目解析</h3><p>很可惜的一道题，因为不了解详细的原理，逆元和阶乘数组设太小了，最终没有AC</p>
+<p>拿到题先用BFS跑了一遍，并打印每轮每个数作为最大数出现在数组中的次数，并很快找到了规律，</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitee.com/wzy2002/pic-bed/raw/master/img/image-20220807201853000.png" alt="image-20220807201853000" style="zoom:50%;" /></p>
+<p>可以发现这是一个组合数的表，$c[i][j]=c[i-1][j]+c[i][j-1]$</p>
+<p>并且最终答案的状态转移方程为$dp[i]=dp[i-1]+c[i][j]*i$</p>
+<p>每次转移取模即可</p>
+<p>但是问题出现在了复杂度上，如果打二维表空间不够，并且会超时</p>
+<p>仔细观察，又可以发现$c[i][j]=C_{i+j-1}^{i}$</p>
+<p>那么放弃递推打表，只需要找到一种快速求出组合数的方法即可</p>
+<p>于是我们可以通过预处理逆元和阶乘的方式，求出组合数</p>
+<h3 id="通过代码-3"><a href="#通过代码-3" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> ll N = <span class="number">3e6</span>+<span class="number">5</span>;</span><br><span class="line"><span class="type">const</span> ll MOD = <span class="number">1e9</span> + <span class="number">7</span>;</span><br><span class="line">ll fac[N], ifac[N];</span><br><span class="line">ll dp[<span class="number">1000010</span>];</span><br><span class="line"><span class="function">ll <span class="title">qpow</span><span class="params">(ll a, ll b, ll MOD)</span> </span>&#123;</span><br><span class="line">    ll res = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (b) &#123;</span><br><span class="line">        <span class="keyword">if</span> (b &amp; <span class="number">1</span>)</span><br><span class="line">            res = <span class="number">1ll</span> * res * a % MOD;</span><br><span class="line">        a = <span class="number">1ll</span> * a * a % MOD;</span><br><span class="line">        b &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">init</span><span class="params">(ll n)</span> </span>&#123;</span><br><span class="line">	fac[<span class="number">0</span>] = ifac[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		fac[i] = <span class="number">1ll</span> * fac[i - <span class="number">1</span>] * i % MOD;</span><br><span class="line">		ifac[i] = <span class="number">1ll</span> * ifac[i - <span class="number">1</span>] * <span class="built_in">qpow</span>(i, MOD - <span class="number">2</span>, MOD) % MOD;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">C</span><span class="params">(ll a,ll b)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(a&lt;<span class="number">0</span> || b&lt;<span class="number">0</span> || a&lt;b) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">return</span> (<span class="number">1ll</span> * fac[a] * ifac[b] % MOD * ifac[a - b] % MOD);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    ll row,col;</span><br><span class="line">    cin&gt;&gt;col&gt;&gt;row;</span><br><span class="line">    ll j=col;</span><br><span class="line">	<span class="built_in">init</span>(N);</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt;= row ; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        ll num=<span class="built_in">C</span>(i+j<span class="number">-1</span>,i);</span><br><span class="line">		dp[i]=(dp[i<span class="number">-1</span>]%MOD+(num*i)%MOD)%MOD;</span><br><span class="line">    &#125;</span><br><span class="line">	cout&lt;&lt;dp[row];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-哈理工暑假训练赛-A-寂寞如雪"><a href="#5-哈理工暑假训练赛-A-寂寞如雪" class="headerlink" title="5.哈理工暑假训练赛 - A - 寂寞如雪"></a>5.哈理工暑假训练赛 - A - 寂寞如雪</h2><h3 id="题目标签-4"><a href="#题目标签-4" class="headerlink" title="题目标签"></a>题目标签</h3><p>DP；最大子序列和</p>
+<h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h3><p>给你一段0和1组成的串，每一段由连续n个1的组成的段，都代表一个数：</p>
+<p>也就是$n^2$</p>
+<p>比如111011001111100111代表的是3^2^,2^2^,5^2^,3^2^</p>
+<p>你可以<strong>任意截取一段</strong>，并且求和。</p>
+<p>但是题目规定，当某一段<strong>被截下来后</strong>是第奇数段，那他就是正的，偶数段就是负的</p>
+<blockquote>
+<p><strong>注意：</strong>截取不能把一段1截断，必须完整的截下来，比如11110011不能被截取为1100必须是111100或者0011</p>
+</blockquote>
+<ul>
+<li>比如截取1110110011111，也就是截取前三个数，3^2^,2^2^,5^2^</li>
+</ul>
+<p>​        那么求和就是3^2^+（-2^2^）+5^2^</p>
+<ul>
+<li>比如截取11001111100111也就是截取后三个数，2^2^,5^2^,3^2^</li>
+</ul>
+<p>​        那么求和就是2^2^+（-5^2^）+3^2^</p>
+<h3 id="题目解析-4"><a href="#题目解析-4" class="headerlink" title="题目解析"></a>题目解析</h3><p>由于题目规定，不能拦腰截断，必须截完整（后面广播给出的）</p>
+<p>问题就变得非常简单了。（也就是为什么一开始没做，看到广播的提示才做的原因）</p>
+<p>对于给出的字符串，可以直接将其压缩成一个数组</p>
+<p><strong>比如：</strong></p>
+<p>110011111001100111</p>
+<p>其实可以压缩成数组[3^2^,2^2^,5^2^,3^2^]</p>
+<p>由于不能拦腰截断1——不会改变压缩后的数组的大小，所以只要对压缩成的数组进行截取。使得这个区间求和最大就可以了</p>
+<p>那么这题就转化成了对一个数组，求最大的连续子段和。刚好本周的训练里就有这道题</p>
+<p><strong>而问题难就难在题目给出的限制</strong>：规定截取后的数，是第偶数个就得变成负数</p>
+<p>看似每次截取后的正负都不同，都要判断，每次判断都会很麻烦</p>
+<p>其实仔细推导会发现，不管怎么截取，每个数总共就只有两种状态</p>
+<p>要么这个数的序号是奇数（正），下一个数是偶数（负），再下一个数是奇数（正）</p>
+<p>要么这个数的序号是偶数（负），下一个数是偶数（正），再下一个数是奇数（负）</p>
+<p><strong>即对：</strong></p>
+<ul>
+<li><p>[3^2^,-2^2^,5^2^,-3^2^]，进行任意截取求和，也就是求最大字段和</p>
+</li>
+<li><p>[-3^2^,2^2^,-5^2^,3^2^]，进行任意截取求和，也就是求最大字段和</p>
+</li>
+</ul>
+<p>最后两个最大字段和，取最大的输出即可</p>
+<h3 id="通过代码-4"><a href="#通过代码-4" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string s;</span><br><span class="line">    cin &gt;&gt; s;</span><br><span class="line">    vector&lt;<span class="type">int</span>&gt; vz,vf;</span><br><span class="line">    vz.<span class="built_in">push_back</span>(<span class="number">0</span>);<span class="comment">//占位，下标从1开始</span></span><br><span class="line">    vf.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">    <span class="type">int</span> flag = <span class="number">1</span>;</span><br><span class="line">    <span class="type">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输入并预处理</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; s.<span class="built_in">length</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (s[i] == <span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">            cnt++;</span><br><span class="line">        <span class="keyword">if</span> (cnt &gt; <span class="number">0</span> &amp;&amp; s[i]==<span class="string">&#x27;0&#x27;</span> || i==s.<span class="built_in">length</span>()<span class="number">-1</span> &amp;&amp; s[i]==<span class="string">&#x27;1&#x27;</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            vz.<span class="built_in">push_back</span>(cnt * cnt * -flag);<span class="comment">//负正负正负正</span></span><br><span class="line">            vf.<span class="built_in">push_back</span>(cnt * cnt * flag);<span class="comment">//正负正负正负</span></span><br><span class="line">            flag = -flag;</span><br><span class="line">            cnt = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//两个数组分别求最大子段和</span></span><br><span class="line">    <span class="type">int</span> maxn=vz[<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= vz.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (vz[i - <span class="number">1</span>] &gt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            vz[i] = vz[i - <span class="number">1</span>] + vz[i];</span><br><span class="line">            <span class="comment">//如果是负数，就说明前一个数对和没有贡献，不算进去，重新从i开始求子段和找最大值。初始化vi[i]=0，不需要清零操作</span></span><br><span class="line">        &#125;</span><br><span class="line">        maxn=<span class="built_in">max</span>(vz[i],maxn);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= vf.<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (vf[i - <span class="number">1</span>] &gt;= <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            vf[i] = vf[i - <span class="number">1</span>] + vf[i];</span><br><span class="line">        &#125;</span><br><span class="line">        maxn=<span class="built_in">max</span>(vf[i],maxn);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//输出</span></span><br><span class="line">    cout&lt;&lt;maxn;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6-MaxSum"><a href="#6-MaxSum" class="headerlink" title="6.MaxSum"></a>6.MaxSum</h2><h3 id="题目标签-5"><a href="#题目标签-5" class="headerlink" title="题目标签"></a>题目标签</h3><p>DP</p>
+<h3 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h3><p>求最大字段和，并输出子段的下标</p>
+<h3 id="题目解析-5"><a href="#题目解析-5" class="headerlink" title="题目解析"></a>题目解析</h3><p>从第一个数开始动态规划</p>
+<p>dp[i]代表了从当前起始点到i的所有数之和</p>
+<p>起始点会随着dp[i]进行动态更新</p>
+<p>那么动态更新的依据是什么呢？</p>
+<p>即：状态转移的过程中，dp[i]每次都加上他的前一个数dp[i-1]</p>
+<p>但是如果dp[i-1]&lt;0。说明dp[i-1]这个数在转移之前是一个很大的负数</p>
+<p>dp[i-1]+dp[i-2]的时候他一加上去，把之前加在一起的全都变成负数了</p>
+<p>说明这个数对求最大的和起不了贡献。</p>
+<p>这个数就放弃加上去，那么前一个起点开始求的子段和就到此为止了</p>
+<p>再加就不礼貌了</p>
+<p>然后开一个新的起点，从新的起点开始加，求连续的最大字段和。</p>
+<p>每次转移的时候更新max，这样再求了所有的子段和之后，就能找到最大的字段和。</p>
+<h3 id="通过代码-5"><a href="#通过代码-5" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 100000 + 5</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll dp[N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    ll t;</span><br><span class="line">    cin &gt;&gt; t;</span><br><span class="line">    ll cnt = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (t--)<span class="comment">//duo&#x27;zu&#x27;shu</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (cnt != <span class="number">1</span>)</span><br><span class="line">            cout &lt;&lt; endl;</span><br><span class="line">        ll n;</span><br><span class="line">        cin &gt;&gt; n;</span><br><span class="line">        <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            cin &gt;&gt; dp[i];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        ll maxn = <span class="number">-9999999</span>;</span><br><span class="line">        ll st = <span class="number">1</span>, ed = <span class="number">1</span>;</span><br><span class="line">        <span class="type">int</span> tempst=<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (dp[i - <span class="number">1</span>] &gt;= <span class="number">0</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                dp[i] = dp[i - <span class="number">1</span>] + dp[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                tempst = i;<span class="comment">//一旦小于0,然后另起一个新的下去。新的dp从当前i开始,st记录为i</span></span><br><span class="line">            &#125;                 </span><br><span class="line">            <span class="keyword">if</span> (dp[i] &gt; maxn) <span class="comment">//每次都判断，并更新最大值</span></span><br><span class="line">            &#123;</span><br><span class="line">                maxn = dp[i];</span><br><span class="line">                st=tempst;</span><br><span class="line">                ed = i;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//输出</span></span><br><span class="line">        cout &lt;&lt; <span class="string">&quot;Case &quot;</span> &lt;&lt; cnt++ &lt;&lt; <span class="string">&quot;:&quot;</span> &lt;&lt; endl</span><br><span class="line">             &lt;&lt; maxn &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; st &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; ed &lt;&lt; endl;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E5%91%A8%E8%AE%B0/">算法周记</a></div><div class="post_share"><div class="social-share" data-image="/img/noritake/12.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/07/31/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B03/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">22暑期ACM集训周记03</div></div></a></div><div class="next-post pull-right"><a href="/2022/08/15/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B05/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">22暑期ACM集训周记05</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/17/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B01/" title="22暑期ACM集训周记01"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-17</div><div class="title">22暑期ACM集训周记01</div></div></a></div><div><a href="/2022/07/31/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B03/" title="22暑期ACM集训周记03"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-31</div><div class="title">22暑期ACM集训周记03</div></div></a></div><div><a href="/2022/07/24/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B02/" title="22暑期ACM集训周记02"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-24</div><div class="title">22暑期ACM集训周记02</div></div></a></div><div><a href="/2022/08/15/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B05/" title="22暑期ACM集训周记05"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-15</div><div class="title">22暑期ACM集训周记05</div></div></a></div><div><a href="/2022/08/21/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B06/" title="22暑期ACM集训周记06"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-21</div><div class="title">22暑期ACM集训周记06</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NDE4Mi8zMDY1NA=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">吴振扬</div><div class="author-info__description">知命不惧，日日自新</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://wzy2002.vercel.app/关于我/"><i class="fas fa-address-card"></i><span>关于本站</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wzy1033" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1033090568@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/23248208?from=search&amp;seid=17564098687180453698&amp;spm_id_from=333.337.0.0" target="_blank" title="bilibili"><i class="fas fa-tv"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wu-zhen-yang-64" target="_blank" title="Zhihu"><i class="fab fa-zhihu"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E8%A1%A8"><span class="toc-text">一、第四周学习总结表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E5%AD%A6%E4%B9%A0%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5"><span class="toc-text">本周学习完成情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F"><span class="toc-text">个人感悟</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9C%AC%E5%91%A8%E5%AD%A6%E4%B9%A0%E6%96%B0%E5%86%85%E5%AE%B9"><span class="toc-text">二、本周学习新内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-inline%E5%87%BD%E6%95%B0"><span class="toc-text">1.inline函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E4%BD%8D%E8%BF%90%E7%AE%97%E6%8A%80%E5%B7%A7"><span class="toc-text">2.位运算技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%AE%97%E4%BD%8D%E6%95%B0"><span class="toc-text">3.算位数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-nullptr%E5%92%8CNULL"><span class="toc-text">4.nullptr和NULL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%BF%AB%E9%80%9F%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-text">5.快速求组合数</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E5%A4%84%E7%90%86%E9%98%B6%E4%B9%98%E9%80%86%E5%85%83%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-text">预处理阶乘逆元求组合数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%A2%E5%8D%A1%E6%96%AF%E5%AE%9A%E7%90%86%E6%B1%82%E7%BB%84%E5%90%88%E6%95%B0"><span class="toc-text">卢卡斯定理求组合数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%A2%98%E8%A7%A3%E4%B8%80%E8%A7%88"><span class="toc-text">三、题解一览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-AtCoder-Beginner-Contest-261-D-Flipping-and-Bonus"><span class="toc-text">1.AtCoder Beginner Contest 261 - D - Flipping and Bonus</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="toc-text">题目解析&#96;</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-AtCoder-Beginner-Contest-261-E-Many-Operations"><span class="toc-text">2.AtCoder Beginner Contest 261 - E - Many Operations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-1"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-1"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-1"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-AtCoder-Beginner-Contest-263-D-Left-Right-Operation"><span class="toc-text">3.AtCoder Beginner Contest 263 - D - Left Right Operation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-2"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-2"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-2"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%93%88%E7%90%86%E5%B7%A5%E6%9A%91%E5%81%87%E8%AE%AD%E7%BB%83%E8%B5%9B-F-%E5%A5%87%E6%80%AA%E7%9A%84%E9%AD%94%E6%B3%95"><span class="toc-text">4.哈理工暑假训练赛 - F - 奇怪的魔法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-3"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-3"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-3"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-3"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%93%88%E7%90%86%E5%B7%A5%E6%9A%91%E5%81%87%E8%AE%AD%E7%BB%83%E8%B5%9B-A-%E5%AF%82%E5%AF%9E%E5%A6%82%E9%9B%AA"><span class="toc-text">5.哈理工暑假训练赛 - A - 寂寞如雪</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-4"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-4"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-4"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-4"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-MaxSum"><span class="toc-text">6.MaxSum</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-5"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-5"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-5"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-5"><span class="toc-text">通过代码</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B06/" title="22暑期ACM集训周记06"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="22暑期ACM集训周记06"/></a><div class="content"><a class="title" href="/2022/08/21/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B06/" title="22暑期ACM集训周记06">22暑期ACM集训周记06</a><time datetime="2022-08-21T15:00:00.000Z" title="发表于 2022-08-21 23:00:00">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/15/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B05/" title="22暑期ACM集训周记05"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="22暑期ACM集训周记05"/></a><div class="content"><a class="title" href="/2022/08/15/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B05/" title="22暑期ACM集训周记05">22暑期ACM集训周记05</a><time datetime="2022-08-15T15:00:00.000Z" title="发表于 2022-08-15 23:00:00">2022-08-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/07/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B04/" title="22暑期ACM集训周记04"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="22暑期ACM集训周记04"/></a><div class="content"><a class="title" href="/2022/08/07/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B04/" title="22暑期ACM集训周记04">22暑期ACM集训周记04</a><time datetime="2022-08-07T15:00:00.000Z" title="发表于 2022-08-07 23:00:00">2022-08-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By 吴振扬</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://wzy1033.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script async src="//at.alicdn.com/t/font_2804883_dzrzjhfbfv.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>

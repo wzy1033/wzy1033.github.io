@@ -1,0 +1,612 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>22暑期ACM集训周记06 | Serein</title><meta name="keywords" content="算法周记"><meta name="author" content="吴振扬"><meta name="copyright" content="吴振扬"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="博弈论&#x2F;并查集&#x2F;字符串&#x2F;线段树&#x2F;图论">
+<meta property="og:type" content="article">
+<meta property="og:title" content="22暑期ACM集训周记06">
+<meta property="og:url" content="http://example.com/2022/08/21/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B06/index.html">
+<meta property="og:site_name" content="Serein">
+<meta property="og:description" content="博弈论&#x2F;并查集&#x2F;字符串&#x2F;线段树&#x2F;图论">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/noritake/12.jpg">
+<meta property="article:published_time" content="2022-08-21T15:00:00.000Z">
+<meta property="article:modified_time" content="2022-09-11T14:32:15.084Z">
+<meta property="article:author" content="吴振扬">
+<meta property="article:tag" content="算法周记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/noritake/12.jpg"><link rel="shortcut icon" href="/img/noritake/da1.jpg"><link rel="canonical" href="http://example.com/2022/08/21/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B06/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?a448fa19cb6abe47b4e5f89922820c23";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><link rel="stylesheet" href="/" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":100,"languages":{"author":"作者: 吴振扬","link":"链接: ","source":"来源: Serein","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '22暑期ACM集训周记06',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-09-11 22:32:15'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/mainColor/heoMainColor.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/zhheo/JS-Heo@main/404/404.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/atom.xml" title="Serein" type="application/atom+xml">
+</head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book-open"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fas fa-compass"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E5%85%B3%E4%BA%8E%E6%88%91/"><i class="fa-fw fas fa-address-card"></i><span> 本站</span></a></li><li><a class="site-page child" href="/%E5%9B%BE%E5%BA%93/%E6%91%84%E5%BD%B1/"><i class="fa-fw fas fa-images"></i><span> 影集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Serein</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-book-open"></i><span> 文档</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li><li><a class="site-page child" href="/random/"><i class="fa-fw fas fa-random"></i><span> 随便看看</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fas fa-compass"></i><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/%E5%85%B3%E4%BA%8E%E6%88%91/"><i class="fa-fw fas fa-address-card"></i><span> 本站</span></a></li><li><a class="site-page child" href="/%E5%9B%BE%E5%BA%93/%E6%91%84%E5%BD%B1/"><i class="fa-fw fas fa-images"></i><span> 影集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">22暑期ACM集训周记06</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-08-21T15:00:00.000Z" title="发表于 2022-08-21 23:00:00">2022-08-21</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-09-11T14:32:15.084Z" title="更新于 2022-09-11 22:32:15">2022-09-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%AD%A6%E4%B9%A0/">学习</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>25分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="22暑期ACM集训周记06"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><h1 id="一、第六周学习总结表"><a href="#一、第六周学习总结表" class="headerlink" title="一、第六周学习总结表"></a>一、第六周学习总结表</h1><ul>
+<li><h3 id="本周学习完成情况"><a href="#本周学习完成情况" class="headerlink" title="本周学习完成情况"></a>本周学习完成情况</h3><table border="1">
+<tr>
+<th>Contest</th>
+<th>完成情况</th>
+</tr>
+<tr>
+<td>博弈论入门练习</td>
+<td>8/12</td>
+</tr>
+<tr>
+<td>并查集练习</td>
+<td>11/19</td>
+</tr>
+<tr>
+<td>字符串</td>
+<td>10/11</td>
+</tr>
+<tr>
+<td>线段树1</td>
+<td>7/15</td>
+</tr>
+<tr>
+  <td>图论(拓扑排序)</td>
+  <td>11/18</td>
+</tr>
+<tr>
+  <td>Atcoder比赛+补题</td>
+  <td>4/8</td>
+</tr>
+<tr>
+  <td>郑州大学比赛+补题</td>
+  <td>6/12</td>
+</tr>
+<tr>
+  <td>小白月赛比赛+补题</td>
+  <td>4/6</td>
+</tr>
+<tr>
+  <td>ccpc华为</td>
+  <td>2/12</td>
+</tr>
+<tr>
+  <td><b>总计</b></td>
+  <td><b>50/90</b></td>
+</td>
+</tr>
+</table>
+</li>
+<li><h3 id="个人感悟"><a href="#个人感悟" class="headerlink" title="个人感悟"></a>个人感悟</h3><p>​        本周是最后一周，经过了40天的历练，感觉自己对算法有了一个全新的认识。对算法和数据结构整体的认知更加的清晰了。未来学习路线也逐渐有了方向。最直观的感受就是解题能力的提升，虽然像atcoder和codeforces上的思维题做题情况和暑假前也差不多，但是做题速度和读题速度有了非常大的进步。而新学习的知识也慢慢的能在各种比赛中用到了，比如上周日的牛客中的博弈论数论题的基础题都解了出来，非常有成就感。<br>​<br>暑期结束到开学的日子里，我将对整个暑假学习的进行一些巩固，把所有刷过的题目看一遍，没有做出的题目再尝试一遍。随后把图论的没有来的及讲完的东西自学完成。把刘汝佳白书所学过的东西都看一遍，以及算法进阶上的题目能做的对照题单尽量全部完成</p>
+</li>
+</ul>
+<h1 id="二、本周学习新内容"><a href="#二、本周学习新内容" class="headerlink" title="二、本周学习新内容"></a>二、本周学习新内容</h1><h3 id="1-LONG-LONG-MAX"><a href="#1-LONG-LONG-MAX" class="headerlink" title="1.LONG_LONG_MAX"></a>1.LONG_LONG_MAX</h3><p><limits.h>中包含的，即long long 的最大值</p>
+<p>9223372036854775807</p>
+<h3 id="2-字符串哈希"><a href="#2-字符串哈希" class="headerlink" title="2.字符串哈希"></a>2.字符串哈希</h3><p>$f(s)=\Sigma_{i=1}^l s[i]\times p^{l-i} (\bmod M )$</p>
+<p>原理：将字符串类比成一个p进制的数</p>
+<ul>
+<li><p>且p通常取<code>131</code> or <code>1331</code>，在$2^{64}$范围内映射</p>
+</li>
+<li><p>为了防止指数爆炸的情况，定义成<code>unsigned long long</code>的形式，超出会自动取模</p>
+</li>
+</ul>
+<p>计算字符串的哈希值，即计算前缀和复杂度为$O(n)$</p>
+<p>计算字符串后再次获取子串的哈希值，即计算区间和复杂度为$O(1)$</p>
+<p>$ f[L, R]=(f[R]−f[L−1]×P ^{R−L+1} )$</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ull;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> P=<span class="number">131</span>;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N=<span class="number">1001</span>;</span><br><span class="line">ull h[N], p[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">gethash</span><span class="params">(string s)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= s.<span class="built_in">length</span>(); i ++ )</span><br><span class="line">    &#123;</span><br><span class="line">        h[i] = h[i - <span class="number">1</span>] * P + s[i];</span><br><span class="line">        p[i] = p[i - <span class="number">1</span>] * P;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ull <span class="title">get</span><span class="params">(<span class="type">int</span> l, <span class="type">int</span> r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> h[r] - h[l - <span class="number">1</span>] * p[r - l + <span class="number">1</span>];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    p[<span class="number">0</span>]=<span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="3-线段树"><a href="#3-线段树" class="headerlink" title="3.线段树"></a>3.线段树</h3><p>$O(log_n)$修改区间值，查询区间值</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Luogu P3372 【模板】线段树 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> lc p &lt;&lt; 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rc p &lt;&lt; 1 | 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 100005</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mid(x, y) x + y &gt;&gt; 1</span></span><br><span class="line">ll n;</span><br><span class="line">ll num[N];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">    ll l, r, sum, add;</span><br><span class="line">&#125; tr[N * <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//向上更新结点维护的值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushup</span><span class="params">(ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tr[p].sum = tr[lc].sum + tr[rc].sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushdown</span><span class="params">(ll p)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> &amp;pp = tr[p], &amp;pl = tr[lc], &amp;pr = tr[rc];</span><br><span class="line">    <span class="keyword">if</span> (pp.add)</span><br><span class="line">    &#123; <span class="comment">//懒惰标记</span></span><br><span class="line">        pl.sum += pp.add * (pl.r - pl.l + <span class="number">1</span>);</span><br><span class="line">        pr.sum += pp.add * (pr.r - pr.l + <span class="number">1</span>);</span><br><span class="line">        pl.add += pp.add; <span class="comment">//+=因为可能有多个懒惰值</span></span><br><span class="line">        pr.add += pp.add;</span><br><span class="line">        pp.add = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//建树,l,r代表的是线段的开始和结束</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(ll p, ll l, ll r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tr[p] = &#123;l, r, num[l], <span class="number">0</span>&#125;;</span><br><span class="line">    <span class="keyword">if</span> (l == r)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    ll m = <span class="built_in">mid</span>(l, r);</span><br><span class="line">    <span class="built_in">build</span>(lc, l, m);</span><br><span class="line">    <span class="built_in">build</span>(rc, m + <span class="number">1</span>, r);</span><br><span class="line">    <span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//区间修改</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(ll p, ll x, ll y, ll k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt;= tr[p].l &amp;&amp; tr[p].r &lt;= y)</span><br><span class="line">    &#123;</span><br><span class="line">        tr[p].sum += (tr[p].r - tr[p].l + <span class="number">1</span>) * k;</span><br><span class="line">        tr[p].add += k;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ll m = <span class="built_in">mid</span>(tr[p].l, tr[p].r); <span class="comment">//寻找改向哪个方向递归查询目标点</span></span><br><span class="line">    <span class="built_in">pushdown</span>(p);</span><br><span class="line">    <span class="keyword">if</span> (x &lt;= m)</span><br><span class="line">        <span class="built_in">update</span>(lc, x, y, k);</span><br><span class="line">    <span class="keyword">if</span> (y &gt; m)</span><br><span class="line">        <span class="built_in">update</span>(rc, x, y, k);</span><br><span class="line">    <span class="built_in">pushup</span>(p);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//区间查询(x=y就是单点查询)</span></span><br><span class="line"><span class="function">ll <span class="title">query</span><span class="params">(ll p, ll x, ll y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (x &lt;= tr[p].l &amp;&amp; tr[p].r &lt;= y)</span><br><span class="line">        <span class="keyword">return</span> tr[p].sum;</span><br><span class="line">    ll m = <span class="built_in">mid</span>(tr[p].l, tr[p].r);</span><br><span class="line">    <span class="built_in">pushdown</span>(p);</span><br><span class="line">    ll sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (x &lt;= m)</span><br><span class="line">        sum += <span class="built_in">query</span>(lc, x, y);</span><br><span class="line">    <span class="keyword">if</span> (y &gt; m)</span><br><span class="line">        sum += <span class="built_in">query</span>(rc, x, y);</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n, m;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lld%lld&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;num[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">build</span>(<span class="number">1</span>, <span class="number">1</span>, n);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="4-博弈论"><a href="#4-博弈论" class="headerlink" title="4.博弈论"></a>4.博弈论</h3><h4 id="01Bash博弈"><a href="#01Bash博弈" class="headerlink" title="01Bash博弈"></a>01Bash博弈</h4><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/hesorchen/article/details/104131660">(91条消息) HDU-2147 kiki‘s game 巴什博弈_hesorchen的博客-CSDN博客</a></p>
+<blockquote>
+<p>只有一堆n个物品，两个人轮流从这堆物品中取物，规定每次至少取1个，最多取m个，最后取光者得胜</p>
+</blockquote>
+<ul>
+<li><strong>分析：</strong></li>
+</ul>
+<p>​        首先可以最简单的分析：</p>
+<p>​            如果只有$m+1$个物品，那么先手最多取走m个物品，无论怎么取，后手都能取完。</p>
+<p>​        那么推广到多个物品，只要 $n = (m+1)*k + p$，即 $n\bmod (m+1) != 0$</p>
+<p>​            只要我们先手，取出p个物品，让剩下的物品数量变成$(m+1)$的倍数</p>
+<p>​            那么只要对手任意取x个物品，先手只要再取$(m+1)-x$个物品，保证每次留给对手的局面都是$(m+1)$的倍数，那么我们就必赢</p>
+<ul>
+<li><p><strong>结论：</strong></p>
+<p>当$n\bmod(m+1)==0$时先手必败</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="type">int</span> n,m;</span><br><span class="line">    cin&gt;&gt;n&gt;&gt;m;</span><br><span class="line">    <span class="keyword">if</span>(n%(m+<span class="number">1</span>)==<span class="number">0</span>)&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;second&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        cout&lt;&lt;<span class="string">&quot;first&quot;</span>&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="02Wythoff博弈"><a href="#02Wythoff博弈" class="headerlink" title="02Wythoff博弈"></a>02Wythoff博弈</h4><blockquote>
+<p>有两堆各若干物品，两个人轮流从任意一堆中至少取出一个或者从两堆中取出同样多的物品，规定每次至少取一个，至多不限，最后取光者胜。</p>
+</blockquote>
+<p>这里的必输局势：（0，0）、（1，2）、（3，5）、（4，7）、（6，10）、（8，13）、（9，15）、（11，18）、（12，20）。从这些必输局势可以发现，每组的第一个是前面没有出现的最小正整数，ak=[k∗(1+5–√)/2], bk=ak+k, k=0,1,2,3…。</p>
+<p>所以，先求出差值，差值*黄金分割比 == 最小值的话后手赢，否者先手赢。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> r = (<span class="built_in">sqrt</span>(<span class="number">5</span>) + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line"><span class="type">int</span> d = <span class="built_in">abs</span>(a - b) * r;</span><br><span class="line"><span class="keyword">if</span> (d != <span class="built_in">min</span>(a, b))  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"><span class="keyword">else</span>  <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
+<p>注：如果a,b的值非常大的话，需要高精度来计算这个double类型的r</p>
+<h4 id="03Nim博弈"><a href="#03Nim博弈" class="headerlink" title="03Nim博弈"></a>03Nim博弈</h4><ul>
+<li>[ ] 异或的原理?</li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/A_Comme_Amour/article/details/79347291">(91条消息) [学习笔记] （博弈论）Nim游戏和SG函数_A_Comme_Amour的博客-CSDN博客_nim博弈</a></p>
+<blockquote>
+<p>Nim博弈：</p>
+<p>即n堆个物品，每次可以里面取任意个,取到最后一个物品的人取胜。</p>
+</blockquote>
+<p><strong>Nim博弈必胜局势的证明</strong></p>
+<ul>
+<li><strong>条件：</strong>有$n$堆牌$x_i$，每次任意堆取牌任意数量。即</li>
+</ul>
+<p>$x_1\ x_2\  x_3 \ x_4 ···x_n $</p>
+<ul>
+<li><strong>已知：</strong></li>
+</ul>
+<p>$若当前x_1 \wedge x_2 \wedge  x_3 \wedge x_4 \wedge ···x_n =0，则先手者操作必输，即为必败局势$</p>
+<ul>
+<li><strong>要证明：</strong></li>
+</ul>
+<p>$x_1 \wedge x_2 \wedge  x_3 \wedge x_4 \wedge ···x_n\  !=0时，必能进行某种操作，使得对手成为必败局势$</p>
+<ul>
+<li><strong>即:</strong></li>
+</ul>
+<script type="math/tex; mode=display">
+当你有x_1 \wedge x_2 \wedge  x_3 \wedge x_4 \wedge ···x_n\  !=0 \ \ \ \\你必有某种取牌法让你的对手有\\x_1 \wedge x_2 \wedge  x_3 \wedge x_4 \wedge ···x_n =0</script><ul>
+<li><strong>证：</strong></li>
+</ul>
+<p>​        设<code>所有数的异或</code>为$x_0$，若$x_0\ !=0$，则说明其二进制上必有一位为1    </p>
+<p>​        则必然存在$x_i$,使得$x_i \wedge x_0 &lt; x_i$,既然这个数比$x_{i}$小</p>
+<p>​            那么就存在$x_i - x_i \wedge x_0&lt;x_i$</p>
+<p>​            所$x_i - (x_i - x_i \wedge x_0)=x_i \wedge x_0$</p>
+<p>​            也就是说可以对$x_i$进行一个操作,即对第i堆牌$x_i$拿出$(x_i - x_i \wedge x_0)$张牌，让他$xi$张牌变成$x_i \wedge x_0$张牌</p>
+<p>​            进行这一步操作之后，你的对手拿到的牌一定是</p>
+<p>​                $x_1 \wedge x_2 \wedge  x_3 \wedge x_4 \wedge ···x_n\ \wedge x_0  $</p>
+<p>​            $=x_0 \wedge x_0=0$,</p>
+<p>​                即所有数异或为0，即为<code>必败局势</code></p>
+<p>​        所以必然存在一种操作，使得对手成为<code>必败局势</code></p>
+<ul>
+<li><strong>总结：</strong></li>
+</ul>
+<p>​        也就是说，要让对手成为<code>必败局势</code>,那么对$x_i$，取出$(x_i - x_i \wedge x_0)$，让牌数$x_i$变为$(x_i - x_i \wedge x_0)$即可</p>
+<p>​        而这样的$x_i$的数量取决于$x_i \wedge x_0 &lt; x_i$的数量</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">&#123;</span><br><span class="line">    ans ^= num[k];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="04ICG游戏"><a href="#04ICG游戏" class="headerlink" title="04ICG游戏"></a>04ICG游戏</h4><p>Nim游戏是经典的公平组合游戏(ICG)，对于ICG游戏我们有如下定义：</p>
+<ul>
+<li>两名选手</li>
+<li>两名选手轮流行动，每一次行动可以在有限合法操作集合中选择一个</li>
+<li>游戏的任何一种可能的局面(position)，合法操作集合只取决于这个局面本身，不取决于轮到哪名选手操作、以前的任何操作、骰子的点数或者其它因素；局面的改变称为“移动”(move)</li>
+<li>如果轮到某名选手移动，且这个局面的合法的移动集合为空（也就是说此时无法进行移动），则这名选手负</li>
+</ul>
+<p>将ICG问题进行转化：任何一个ICG都可以通过把每个局面看作一个顶点，对每个局面和它的子局面连一条有向边来抽象这个“有向图游戏”</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitee.com/wzy2002/pic-bed/raw/master/img/image-20220816084901461.png" alt="image-20220816084901461" style="zoom:30%;" /></p>
+<h4 id="05PN分析"><a href="#05PN分析" class="headerlink" title="05PN分析"></a>05PN分析</h4><ul>
+<li><strong>P-position：即必败点</strong></li>
+</ul>
+<ol>
+<li>所有终结位置，不能再走的位置，为必败点(P点)</li>
+<li>某点开始的所有操作，都将进入<code>必胜点(N点)</code>的位置，为必败点</li>
+</ol>
+<ul>
+<li><strong>N-position：即必胜点</strong></li>
+</ul>
+<ol>
+<li>某点开始的所有操作，存在某一步能进入<code>必败点(P点)</code>的位置，为必胜点</li>
+</ol>
+<ul>
+<li>分析步骤</li>
+</ul>
+<ol>
+<li>将所有终结位置标记为必败点(P点);</li>
+<li>将所有一步能进入必败点(P点)的位置标记为必胜点(N点);</li>
+<li>如果从某个点开始的所有一步操作都只能进入必胜点(N点)，则将该位置标记为必败点(P点);</li>
+<li>如果在步骤3中未能找到新的必败点(P点)，算法终止，否则返回步骤2.</li>
+</ol>
+<h4 id="06SG函数"><a href="#06SG函数" class="headerlink" title="06SG函数"></a>06SG函数</h4><ul>
+<li>[ ] SG异或的原理？</li>
+</ul>
+<p><strong>SG函数</strong>为<strong>计算博弈状态</strong>的函数，当SG[X] = 0时，说明先手必败</p>
+<ul>
+<li>mex运算(minimal excludant)</li>
+</ul>
+<p>$mex(S)=min\left\{不在集合中的自然数\right\}$</p>
+<script type="math/tex; mode=display">sg(x)=mex\left\{ 每个sg(y)\ \ |\ \  y是x的后继\right\}</script><ul>
+<li>SG函数的求法：</li>
+</ul>
+<ol>
+<li>找出必败态</li>
+<li>找出当前所有状态的前驱结点</li>
+<li>根据定义计算结点SG值</li>
+<li>重复上述步骤，直到整棵树建立完成</li>
+</ol>
+<ul>
+<li>例题：<a target="_blank" rel="noopener" href="https://www.acwing.com/problem/content/895/">集合Nim</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/tian-zai/p/16543249.html">集合-Nim游戏 - 天仔 - 博客园 (cnblogs.com)</a></p>
+<ul>
+<li>代码模板</li>
+</ul>
+<p>DFS序遍历DAG图</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> sg[N];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; a[N];</span><br><span class="line"></span><br><span class="line"><span class="comment">// dfs序遍历DAG图求SG函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getSg</span><span class="params">(<span class="type">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//如果有值，直接返回（记忆化搜索）</span></span><br><span class="line">    <span class="keyword">if</span> (sg[cur] != <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> sg[cur];</span><br><span class="line">    <span class="comment">//如果没有，那就找</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//用于标记</span></span><br><span class="line">    <span class="type">bool</span> vis[N] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//遍历当前结点的后继结点，dfs序求出他们的sg函数,并标记</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; a[cur].<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> next = a[cur][i];</span><br><span class="line">        <span class="type">int</span> pos = <span class="built_in">getSg</span>(next);</span><br><span class="line">        <span class="comment">//为true的pos就是当前cur结点的后继的sg值</span></span><br><span class="line">        vis[pos] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// mex函数，找出最小的不在集合内的自然数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[i] == <span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sg[cur] = i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sg[cur];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>非DFS,一次性打表</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> f[<span class="number">15</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">89</span>, <span class="number">144</span>, <span class="number">233</span>, <span class="number">377</span>, <span class="number">610</span>, <span class="number">987</span>&#125;;</span><br><span class="line"><span class="type">bool</span> vis[N];</span><br><span class="line"><span class="type">int</span> sg[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">getSg</span><span class="params">(<span class="type">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(sg, <span class="number">0</span>, <span class="built_in">sizeof</span>(sg));</span><br><span class="line">    <span class="comment">// sg[0]=0,所以循环从1开始</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(vis, <span class="number">0</span>, <span class="built_in">sizeof</span>(vis));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= n &amp;&amp; f[j] &lt;= i; j++)</span><br><span class="line">            vis[sg[i - f[j]]] = <span class="literal">true</span>; <span class="comment">//当前节点可以转到的下一状态标记</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt;= n; j++)</span><br><span class="line">        &#123; <span class="comment">//查询当前后继状态SG值中最小的非零值</span></span><br><span class="line">            <span class="keyword">if</span> (vis[j] == <span class="literal">false</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                sg[i] = j;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="三、题解一览"><a href="#三、题解一览" class="headerlink" title="三、题解一览"></a>三、题解一览</h1><h2 id="1-博弈论练习-H-A-Chess-Game"><a href="#1-博弈论练习-H-A-Chess-Game" class="headerlink" title="1.博弈论练习 - H - A Chess Game"></a>1.博弈论练习 - H - A Chess Game</h2><h3 id="题目标签"><a href="#题目标签" class="headerlink" title="题目标签"></a>题目标签</h3><p>博弈论；SG函数</p>
+<h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个DAG图，以及一些棋子，判断是否能获胜</p>
+<h3 id="题目解析"><a href="#题目解析" class="headerlink" title="题目解析"></a>题目解析</h3><p>经典的SG函数的应用。</p>
+<p>用dfs序遍历一个DAG图求解SG函数</p>
+<ol>
+<li>先判断值是否存在（记忆化搜索）</li>
+<li>当前结点能走的所有结点并dfs，打上标记</li>
+<li>mex函数找出最小不存在集合内的自然数</li>
+</ol>
+<h3 id="通过代码"><a href="#通过代码" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ios ios::sync_with_stdio(false), cin.tie(0), cout.tie(0)</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 1100</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> sg[N];</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; a[N];</span><br><span class="line"><span class="comment">// dfs序遍历DAG图求SG函数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">getSg</span><span class="params">(<span class="type">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//如果有值，直接返回（记忆化搜索）</span></span><br><span class="line">    <span class="keyword">if</span> (sg[cur] != <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> sg[cur];</span><br><span class="line"></span><br><span class="line">    <span class="comment">//如果没有，那就找</span></span><br><span class="line">    <span class="comment">//用于标记</span></span><br><span class="line">    <span class="type">bool</span> vis[N] = &#123;<span class="literal">false</span>&#125;;</span><br><span class="line">    <span class="comment">//遍历当前结点的后继结点，dfs序求出他们的sg函数,并标记</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; a[cur].<span class="built_in">size</span>(); i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> next = a[cur][i];</span><br><span class="line">        <span class="type">int</span> pos = <span class="built_in">getSg</span>(next);</span><br><span class="line">        <span class="comment">//为true的pos就是当前cur结点的后继的sg值</span></span><br><span class="line">        vis[pos] = <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// mex函数，找出最小的不在集合内的自然数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[i] == <span class="literal">false</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sg[cur] = i;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sg[cur];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ios;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">bool</span> v[N];</span><br><span class="line">        <span class="built_in">memset</span>(sg, <span class="number">-1</span>, <span class="built_in">sizeof</span>(sg));</span><br><span class="line">        <span class="built_in">memset</span>(v, <span class="number">0</span>, <span class="built_in">sizeof</span>(v));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> t;</span><br><span class="line">            cin &gt;&gt; t;</span><br><span class="line">            a[i].<span class="built_in">clear</span>();</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; t; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> temp;</span><br><span class="line">                cin &gt;&gt; temp;</span><br><span class="line">                a[i].<span class="built_in">push_back</span>(temp);</span><br><span class="line">                v[i] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> q;</span><br><span class="line">        <span class="keyword">while</span> (cin &gt;&gt; q &amp;&amp; q != <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span> (q--)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> temp;</span><br><span class="line">                cin &gt;&gt; temp;</span><br><span class="line">                ans ^= <span class="built_in">getSg</span>(temp);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (ans == <span class="number">0</span>)</span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;LOSE&quot;</span> &lt;&lt; endl;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                cout &lt;&lt; <span class="string">&quot;WIN&quot;</span> &lt;&lt; endl;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="2-POJ2182-Lost-Cows"><a href="#2-POJ2182-Lost-Cows" class="headerlink" title="2.POJ2182 - Lost Cows"></a>2.POJ2182 - Lost Cows</h2><h3 id="题目标签-1"><a href="#题目标签-1" class="headerlink" title="题目标签"></a>题目标签</h3><p>线段树</p>
+<h3 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h3><p>一共有n个数为1-n，随机进行排列</p>
+<p>现在你不知道每个数的大小是多少</p>
+<p>你只知道每个数的前面一共有多少个数比他小，给出2到n（第一个数默认为0）</p>
+<p>现在请你还原出这个数的序列</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitee.com/wzy2002/pic-bed/raw/master/img/image-20220818140844150.png" alt="image-20220818140844150" style="zoom:50%;" align="left"/></p>
+<h3 id="题目解析-1"><a href="#题目解析-1" class="headerlink" title="题目解析"></a>题目解析</h3><p>从后往前遍历，num数组</p>
+<p>推导出，$ans[i]=(1-n)中除去ans[i,n]出现过的数后，第num[i]+1大的数$</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://gitee.com/wzy2002/pic-bed/raw/master/img/image-20220818141952432.png" alt="image-20220818141952432"></p>
+<p>这里的除去，只是用数组模拟时的说法，实际上，每个数前面的数(可以和他比较的数) 就是不包含 已经计算的数(即后面的数)</p>
+<p>而如果用数组来模拟这一过程，会出现TLE的现象</p>
+<p>所以这题可以用线段树来做</p>
+<p>而线段树的做法不再是维护一个数组，有没有被选中过。而是每一个结点都记录当前区间内还剩下多少个数<code>len</code>(可以被比较的数)</p>
+<p>初始化时，将每个区间的len都记录为r-l+1,比如[1,5]就是5</p>
+<p>每次查询的时候，需要动态的去修改区间的长度，与修改sum类似，每个被访问的（区间包含的）都需要进行修改</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function">ll <span class="title">query</span><span class="params">(ll cur, ll k)</span><span class="comment">//表示寻找cur区间内第k小的值</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">pushup</span>(cur);</span><br><span class="line">    <span class="keyword">if</span> (tr[cur].l == tr[cur].r)</span><br><span class="line">        <span class="keyword">return</span> tr[cur].r;</span><br><span class="line">    ll sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (k &lt;= tr[lc].len)</span><br><span class="line">        sum += <span class="built_in">query</span>(lc, k);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        sum += <span class="built_in">query</span>(rc, k - tr[lc].len);</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>查询时，用k来查询，与左边的len进行比较。</p>
+<p>如果小于len，就继续向左遍历，即找第len小的数</p>
+<p>如果大于len，就向右遍历，并<code>query(rc,k-tr[lc].len)</code>，意味寻找右边区间内第<code>k-tr[lc].len</code>小的数</p>
+<p>比如</p>
+<ul>
+<li>左区间剩下两个数</li>
+<li>右区间剩下三个数<ul>
+<li>此时如果查找第3小的数，就是递归查找右区间第1小的数<ul>
+<li>因为线段是从小到大排的，所以右区间第1小的数就是，1+2（左区间的数）=3小的数</li>
+</ul>
+</li>
+<li>此时如果查找第2小的数，就是递归查找左区间第2小的数</li>
+</ul>
+</li>
+</ul>
+<h3 id="通过代码-1"><a href="#通过代码-1" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Luogu P3372 【模板】线段树 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="meta">#<span class="keyword">define</span> lc cur &lt;&lt; 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> rc cur &lt;&lt; 1 | 1</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 9000</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> mid(x, y) x + y &gt;&gt; 1</span></span><br><span class="line">ll n;</span><br><span class="line">ll num[N];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span></span><br><span class="line">&#123;</span><br><span class="line">    ll l, r, len;</span><br><span class="line">&#125; tr[N * <span class="number">4</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//向上更新结点维护的值</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">pushup</span><span class="params">(ll cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tr[cur].len--;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//建树,l,r代表的是线段的开始和结束</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">build</span><span class="params">(ll cur, ll l, ll r)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    tr[cur].l=l;tr[cur].r=r;tr[cur].len=r-l+<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">if</span> (l == r)</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    ll m = <span class="built_in">mid</span>(l, r);</span><br><span class="line">    <span class="built_in">build</span>(lc, l, m);</span><br><span class="line">    <span class="built_in">build</span>(rc, m + <span class="number">1</span>, r);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ll <span class="title">query</span><span class="params">(ll cur, ll k)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">pushup</span>(cur);</span><br><span class="line">    <span class="keyword">if</span> (tr[cur].l == tr[cur].r)</span><br><span class="line">        <span class="keyword">return</span> tr[cur].r;</span><br><span class="line">    ll sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">if</span> (k &lt;= tr[lc].len)</span><br><span class="line">        sum += <span class="built_in">query</span>(lc, k);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        sum += <span class="built_in">query</span>(rc, k - tr[lc].len);</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n;</span><br><span class="line">    ll ans[N] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">2</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%lld&quot;</span>, &amp;num[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">build</span>(<span class="number">1</span>, <span class="number">1</span>, n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = n; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">    &#123;</span><br><span class="line">        ans[i] = <span class="built_in">query</span>(<span class="number">1</span>, num[i] + <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;%lld\n&quot;</span>, ans[i]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3-拓扑排序-B-Following-Orders"><a href="#3-拓扑排序-B-Following-Orders" class="headerlink" title="3.拓扑排序 - B - Following Orders"></a>3.拓扑排序 - B - Following Orders</h2><h3 id="题目标签-2"><a href="#题目标签-2" class="headerlink" title="题目标签"></a>题目标签</h3><p>拓扑排序</p>
+<p>DFS</p>
+<h3 id="题目描述-2"><a href="#题目描述-2" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个字母序列</p>
+<p>以及字母之间的关系</p>
+<p>按字典序以及字母之间的关系求出所有的全排列</p>
+<h3 id="题目解析-2"><a href="#题目解析-2" class="headerlink" title="题目解析"></a>题目解析</h3><p>求拓扑全排列</p>
+<p>按照常规全排列的思想用DFS去搜索</p>
+<p>首先按照常规方法读入，这里注意要把字母转换为数字，再进行sort排序，保证最后输出的一定是按字典序来的</p>
+<p>记录答案，记录对应的字母，输出答案再把数字转换为字母即可</p>
+<p>搜索：</p>
+<p>每次dfs，按照排序后的数字进行遍历</p>
+<p>将没有访问过的和入度为0的进行下一次dfs</p>
+<p>dfs前把该数打上标记</p>
+<ul>
+<li>他连接的所有点的入读都减一</li>
+<li>这个点的vis记录为true</li>
+</ul>
+<h3 id="通过代码-2"><a href="#通过代码-2" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 1001</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">bool</span> vis[N];</span><br><span class="line"><span class="type">int</span> in[N];</span><br><span class="line"><span class="type">int</span> g[N][N];</span><br><span class="line"><span class="type">int</span> num[N];</span><br><span class="line"><span class="type">int</span> ans[N];</span><br><span class="line"><span class="comment">// <span class="doctag">TODO:</span>BFS怎么做这道题</span></span><br><span class="line"><span class="comment">//转换成数字</span></span><br><span class="line"><span class="comment">//顺序遍历num,遇到的如果入度为0了，那么就添加，并用ans记录。</span></span><br><span class="line"><span class="comment">// vis记录是否访问，以便不重复</span></span><br><span class="line"><span class="comment">// dfs要进行回溯</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">toposort</span><span class="params">(<span class="type">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (cur == n)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;%c&quot;</span>, +<span class="built_in">char</span>(ans[i] + <span class="string">&#x27;a&#x27;</span>));</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (vis[num[i]] == <span class="literal">false</span> &amp;&amp; in[num[i]] == <span class="number">0</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            vis[num[i]] = <span class="literal">true</span>;</span><br><span class="line">            ans[cur] = num[i];</span><br><span class="line">            <span class="comment">//下一个点的访问到的点</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (g[num[i]][num[j]])</span><br><span class="line">                    in[num[j]]--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="built_in">toposort</span>(cur + <span class="number">1</span>);</span><br><span class="line">            <span class="comment">//回溯</span></span><br><span class="line">            vis[num[i]] = <span class="literal">false</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (g[num[i]][num[j]])</span><br><span class="line">                    in[num[j]]++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    string line;</span><br><span class="line">    <span class="keyword">while</span> (<span class="built_in">getline</span>(cin, line))</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(vis, <span class="literal">false</span>, <span class="built_in">sizeof</span>(vis));</span><br><span class="line">        <span class="built_in">memset</span>(in, <span class="number">0</span>, <span class="built_in">sizeof</span>(in));</span><br><span class="line">        <span class="built_in">memset</span>(g, <span class="number">0</span>, <span class="built_in">sizeof</span>(g));</span><br><span class="line"></span><br><span class="line">        n = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; line.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (line[i] &gt;= <span class="string">&#x27;a&#x27;</span> &amp;&amp; line[i] &lt;= <span class="string">&#x27;z&#x27;</span>)</span><br><span class="line">                num[n++] = line[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">sort</span>(num, num + n);</span><br><span class="line">        <span class="built_in">getline</span>(cin, line);</span><br><span class="line">        <span class="type">int</span> cnt = <span class="number">0</span>, temp[<span class="number">2</span>]; <span class="comment">//每两个字母读取一次</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; line.<span class="built_in">size</span>(); i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (line[i] != <span class="string">&#x27; &#x27;</span>)</span><br><span class="line">                temp[cnt++] = line[i] - <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">            <span class="keyword">if</span> (cnt == <span class="number">2</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                cnt = <span class="number">0</span>;</span><br><span class="line">                g[temp[<span class="number">0</span>]][temp[<span class="number">1</span>]] = <span class="number">1</span>;</span><br><span class="line">                in[temp[<span class="number">1</span>]]++; <span class="comment">//入度</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">toposort</span>(<span class="number">0</span>);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="4-博弈论练习-C-Being-a-Good-Boy-in-Spring-Festival"><a href="#4-博弈论练习-C-Being-a-Good-Boy-in-Spring-Festival" class="headerlink" title="4.博弈论练习 - C - Being a Good Boy in Spring Festival"></a>4.博弈论练习 - C - Being a Good Boy in Spring Festival</h2><h3 id="题目标签-3"><a href="#题目标签-3" class="headerlink" title="题目标签"></a>题目标签</h3><p>博弈论；</p>
+<p>nim博弈；</p>
+<h3 id="题目描述-3"><a href="#题目描述-3" class="headerlink" title="题目描述"></a>题目描述</h3><p>有m堆牌，可以任意牌堆中取走任意张，全部取光游戏结束，拿走最后一张牌的人获胜</p>
+<p>求先手要获胜，第一步有多少种可能</p>
+<h3 id="题目解析-3"><a href="#题目解析-3" class="headerlink" title="题目解析"></a>题目解析</h3><p>根据nim博弈的结论</p>
+<p>要让对手成为<code>必败局势</code>,那么对$x_i$，取出$(x_i - x_i \wedge x_0)$，让牌数$x_i$变为$(x_i - x_i \wedge x_0)$即可</p>
+<p>而这样的$x_i$的数量取决于$x_i \wedge x_0 &lt; x_i$的数量</p>
+<p>于是先求出所有的数的异或</p>
+<p>再遍历每一个数即可</p>
+<h3 id="通过代码-3"><a href="#通过代码-3" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ull unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> N 1001</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> inf 0x3f3f3f</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">solve</span><span class="params">(ll n)</span></span>&#123;</span><br><span class="line">    ll a[<span class="number">101</span>]=&#123;<span class="number">0</span>&#125;;</span><br><span class="line">    ll sum=<span class="number">0</span>;</span><br><span class="line">    ll ans=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        cin&gt;&gt;a[i];</span><br><span class="line">        sum^=a[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (ll i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(a[i]&gt;(sum^a[i]))&#123;</span><br><span class="line">            ans++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    cout&lt;&lt;ans&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ll n;</span><br><span class="line">    <span class="keyword">while</span> (cin&gt;&gt;n &amp;&amp; n!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">solve</span>(n);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="5-博弈论练习-D-Fibonacci-again-and-again"><a href="#5-博弈论练习-D-Fibonacci-again-and-again" class="headerlink" title="5.博弈论练习 - D - Fibonacci again and again"></a>5.博弈论练习 - D - Fibonacci again and again</h2><h3 id="题目标签-4"><a href="#题目标签-4" class="headerlink" title="题目标签"></a>题目标签</h3><p>博弈论;</p>
+<p>nim博弈</p>
+<p>SG函数</p>
+<h3 id="题目描述-4"><a href="#题目描述-4" class="headerlink" title="题目描述"></a>题目描述</h3><p>有n堆牌，每次可以任意堆里取x张牌</p>
+<p>x必须是斐波那契数列中的数</p>
+<h3 id="题目解析-4"><a href="#题目解析-4" class="headerlink" title="题目解析"></a>题目解析</h3><p>首先打斐波那契表</p>
+<p>因为题目数据直到1000，所有直接手写一个就可以</p>
+<p>然后就是打表sg函数</p>
+<h3 id="通过代码-4"><a href="#通过代码-4" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">10010</span>;</span><br><span class="line"><span class="type">int</span> f[<span class="number">15</span>] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">21</span>, <span class="number">34</span>, <span class="number">55</span>, <span class="number">89</span>, <span class="number">144</span>, <span class="number">233</span>, <span class="number">377</span>, <span class="number">610</span>, <span class="number">987</span>&#125;;</span><br><span class="line"><span class="type">int</span> s[N];</span><br><span class="line"><span class="type">int</span> sg[N];</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">getSg</span><span class="params">(<span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">    <span class="built_in">memset</span>(sg,<span class="number">0</span>,<span class="built_in">sizeof</span>(sg));</span><br><span class="line">    <span class="comment">//sg[0]=0,所以循环从1开始</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;=n;i++)&#123;</span><br><span class="line">        <span class="built_in">memset</span>(s,<span class="number">0</span>,<span class="built_in">sizeof</span>(s));</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=n&amp;&amp;f[j]&lt;=i;j++)</span><br><span class="line">            s[sg[i-f[j]]]=<span class="number">1</span>;<span class="comment">//当前节点可以转到的下一状态标记</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j=<span class="number">0</span>;j&lt;=n;j++)&#123; <span class="comment">//查询当前后继状态SG值中最小的非零值</span></span><br><span class="line">            <span class="keyword">if</span>(!s[j])&#123;</span><br><span class="line">                sg[i]=j;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> a, b, c;</span><br><span class="line">    <span class="built_in">getSg</span>(<span class="number">1001</span>);</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; a &gt;&gt; b &gt;&gt; c &amp;&amp; a != <span class="number">0</span> &amp;&amp; b != <span class="number">0</span> &amp;&amp; c != <span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(f, <span class="number">-1</span>, <span class="built_in">sizeof</span>(f)); <span class="comment">//初始化f均为-1,方便在sg函数中查看x是否被记录过</span></span><br><span class="line">        <span class="type">int</span> res = <span class="number">0</span>;</span><br><span class="line">        res ^= sg[a];</span><br><span class="line">        res ^= sg[b];</span><br><span class="line">        res ^= sg[c];</span><br><span class="line">        <span class="comment">//观察异或值的变化,基本原理与Nim游戏相同</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (res != <span class="number">0</span>)</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Fibo\n&quot;</span>);</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">&quot;Nacci\n&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="6-并查集练习-C-The-Suspects"><a href="#6-并查集练习-C-The-Suspects" class="headerlink" title="6.并查集练习 - C - The Suspects"></a>6.并查集练习 - C - The Suspects</h2><h3 id="题目标签-5"><a href="#题目标签-5" class="headerlink" title="题目标签"></a>题目标签</h3><p>并查集</p>
+<h3 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h3><p>某地爆发了疫情</p>
+<p>给出一堆序列，表示这些人曾存在同一场所，为密接</p>
+<p>已知0号为携带者，所有和他为密接的人都会被感染</p>
+<p>求最后感染的总人数</p>
+<h3 id="题目解析-5"><a href="#题目解析-5" class="headerlink" title="题目解析"></a>题目解析</h3><p>记录结点数量的并查集，统计0号结点所在位置的并查集的大小即可</p>
+<p>记录结点数量：每个并查集的数量记录在最大祖先结点上，所有人初始化为1</p>
+<p>每次合并时，让合并后的祖先更新size大小</p>
+<p>查询时查询size[find(0)]即可</p>
+<h3 id="通过代码-5"><a href="#通过代码-5" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> fa[<span class="number">30005</span>];</span><br><span class="line"><span class="type">int</span> size[<span class="number">30005</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (x != fa[x])</span><br><span class="line">        x = fa[x] = fa[fa[x]];</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x=<span class="built_in">find</span>(x);</span><br><span class="line">    y=<span class="built_in">find</span>(y);</span><br><span class="line">    <span class="keyword">if</span>(x==y) <span class="keyword">return</span>;</span><br><span class="line">    fa[y] = x;</span><br><span class="line">    size[x]+=size[y];</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> n, m;</span><br><span class="line">    <span class="keyword">while</span> (cin &gt;&gt; n &gt;&gt; m &amp;&amp; n+m!=<span class="number">0</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="built_in">memset</span>(fa,<span class="number">0</span>,<span class="built_in">sizeof</span>(fa));</span><br><span class="line">        <span class="built_in">memset</span>(size,<span class="number">0</span>,<span class="built_in">sizeof</span>(size));</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            fa[i] = i;</span><br><span class="line">            size[i]=<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">int</span> num;cin&gt;&gt;num;</span><br><span class="line">            <span class="type">int</span> father;cin&gt;&gt;father;</span><br><span class="line">            <span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>;j &lt; num; j++)<span class="comment">//合并所有</span></span><br><span class="line">            &#123;</span><br><span class="line">                <span class="type">int</span> son;cin&gt;&gt;son;</span><br><span class="line">                <span class="built_in">merge</span>(father,son);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="comment">//</span></span><br><span class="line">        cout&lt;&lt;size[<span class="built_in">find</span>(<span class="number">0</span>)]&lt;&lt;endl;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="7-并查集练习-D-Find-them-Catch-them"><a href="#7-并查集练习-D-Find-them-Catch-them" class="headerlink" title="7.并查集练习 - D - Find them, Catch them"></a>7.并查集练习 - D - Find them, Catch them</h2><h3 id="题目标签-6"><a href="#题目标签-6" class="headerlink" title="题目标签"></a>题目标签</h3><p>并查集</p>
+<h3 id="题目描述-6"><a href="#题目描述-6" class="headerlink" title="题目描述"></a>题目描述</h3><p>有两个帮派的人分别为龙和虎</p>
+<p>现有n人，编号为1-n，要么隶属于龙，要么隶属于虎</p>
+<p>现在每行给出一个操作符 和 两个数</p>
+<p>D表示两个人不是同一帮派的</p>
+<p>A表示查询这两个人是否为同一帮派的</p>
+<h3 id="题目解析-6"><a href="#题目解析-6" class="headerlink" title="题目解析"></a>题目解析</h3><p>使用到<strong>种类并查集</strong></p>
+<p>普通并查集是以朋友的朋友还是朋友的思路串在一起</p>
+<p>而种类并查集是以<strong>敌人的敌人是朋友</strong>联系在一起</p>
+<p>所以要开两倍数组，以n为分界线</p>
+<p>表示朋友时，那么在分界线内合并</p>
+<p>​    即<code>merge(a,b);merge(a+n,b+n)</code></p>
+<p>表示敌人时，那么跨过分界线合并</p>
+<p>​    即<code>merge(a+n,b);merge(a,b+n)</code></p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic4.zhimg.com/v2-d86d178ed411c7c0d98402359efe5360_1440w.jpg?source=172ae18b" alt="算法学习笔记(7)：种类并查集"></p>
+<p>若有三种不同种类，则开三倍数组</p>
+<h3 id="通过代码-6"><a href="#通过代码-6" class="headerlink" title="通过代码"></a>通过代码</h3><figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> ll long long</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> fa[<span class="number">200010</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="type">int</span> <span class="title">find</span><span class="params">(<span class="type">int</span> x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">while</span> (x != fa[x])</span><br><span class="line">        x = fa[x] = fa[fa[x]];</span><br><span class="line">    <span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">merge</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    fa[<span class="built_in">find</span>(y)] = <span class="built_in">find</span>(x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="type">int</span> T;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;T);</span><br><span class="line">    <span class="keyword">while</span> (T--)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="type">int</span> m, n;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>,&amp;n,&amp;m);</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;=<span class="number">2</span>*n; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            fa[i] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="type">char</span> op[<span class="number">2</span>];</span><br><span class="line">            <span class="type">int</span> b, c;</span><br><span class="line">            <span class="built_in">scanf</span>(<span class="string">&quot;%s %d %d&quot;</span>,op,&amp;b,&amp;c);</span><br><span class="line">            <span class="keyword">if</span> (op[<span class="number">0</span>] == <span class="string">&#x27;D&#x27;</span>) <span class="comment">//合并不同类</span></span><br><span class="line">            &#123;              <span class="comment">//合并</span></span><br><span class="line">                <span class="built_in">merge</span>(b + n, c);</span><br><span class="line">                <span class="built_in">merge</span>(b, c + n);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(op[<span class="number">0</span>] == <span class="string">&#x27;A&#x27;</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="keyword">if</span> (<span class="built_in">find</span>(b) == <span class="built_in">find</span>(c))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">&quot;In the same gang.\n&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">find</span>(b + n) == <span class="built_in">find</span>(c))</span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">&quot;In different gangs.\n&quot;</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span></span><br><span class="line">                &#123;</span><br><span class="line">                    <span class="built_in">printf</span>(<span class="string">&quot;Not sure yet.\n&quot;</span>);<span class="comment">//</span></span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</article><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AE%97%E6%B3%95%E5%91%A8%E8%AE%B0/">算法周记</a></div><div class="post_share"><div class="social-share" data-image="/img/noritake/12.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/08/15/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B05/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">22暑期ACM集训周记05</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2022/07/17/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B01/" title="22暑期ACM集训周记01"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-17</div><div class="title">22暑期ACM集训周记01</div></div></a></div><div><a href="/2022/07/31/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B03/" title="22暑期ACM集训周记03"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-31</div><div class="title">22暑期ACM集训周记03</div></div></a></div><div><a href="/2022/08/07/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B04/" title="22暑期ACM集训周记04"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-07</div><div class="title">22暑期ACM集训周记04</div></div></a></div><div><a href="/2022/07/24/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B02/" title="22暑期ACM集训周记02"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-07-24</div><div class="title">22暑期ACM集训周记02</div></div></a></div><div><a href="/2022/08/15/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B05/" title="22暑期ACM集训周记05"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-15</div><div class="title">22暑期ACM集训周记05</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="lv-container" data-id="city" data-uid="MTAyMC81NDE4Mi8zMDY1NA=="></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/avatar.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">吴振扬</div><div class="author-info__description">知命不惧，日日自新</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">10</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://wzy2002.vercel.app/关于我/"><i class="fas fa-address-card"></i><span>关于本站</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/wzy1033" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1033090568@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://space.bilibili.com/23248208?from=search&amp;seid=17564098687180453698&amp;spm_id_from=333.337.0.0" target="_blank" title="bilibili"><i class="fas fa-tv"></i></a><a class="social-icon" href="https://www.zhihu.com/people/wu-zhen-yang-64" target="_blank" title="Zhihu"><i class="fab fa-zhihu"></i></a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E7%AC%AC%E5%85%AD%E5%91%A8%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E8%A1%A8"><span class="toc-text">一、第六周学习总结表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%AC%E5%91%A8%E5%AD%A6%E4%B9%A0%E5%AE%8C%E6%88%90%E6%83%85%E5%86%B5"><span class="toc-text">本周学习完成情况</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%AA%E4%BA%BA%E6%84%9F%E6%82%9F"><span class="toc-text">个人感悟</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E6%9C%AC%E5%91%A8%E5%AD%A6%E4%B9%A0%E6%96%B0%E5%86%85%E5%AE%B9"><span class="toc-text">二、本周学习新内容</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-LONG-LONG-MAX"><span class="toc-text">1.LONG_LONG_MAX</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C"><span class="toc-text">2.字符串哈希</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%BA%BF%E6%AE%B5%E6%A0%91"><span class="toc-text">3.线段树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%8D%9A%E5%BC%88%E8%AE%BA"><span class="toc-text">4.博弈论</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#01Bash%E5%8D%9A%E5%BC%88"><span class="toc-text">01Bash博弈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#02Wythoff%E5%8D%9A%E5%BC%88"><span class="toc-text">02Wythoff博弈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#03Nim%E5%8D%9A%E5%BC%88"><span class="toc-text">03Nim博弈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#04ICG%E6%B8%B8%E6%88%8F"><span class="toc-text">04ICG游戏</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#05PN%E5%88%86%E6%9E%90"><span class="toc-text">05PN分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#06SG%E5%87%BD%E6%95%B0"><span class="toc-text">06SG函数</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%A2%98%E8%A7%A3%E4%B8%80%E8%A7%88"><span class="toc-text">三、题解一览</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8D%9A%E5%BC%88%E8%AE%BA%E7%BB%83%E4%B9%A0-H-A-Chess-Game"><span class="toc-text">1.博弈论练习 - H - A Chess Game</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-POJ2182-Lost-Cows"><span class="toc-text">2.POJ2182 - Lost Cows</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-1"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-1"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-1"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-1"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F-B-Following-Orders"><span class="toc-text">3.拓扑排序 - B - Following Orders</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-2"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-2"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-2"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-2"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8D%9A%E5%BC%88%E8%AE%BA%E7%BB%83%E4%B9%A0-C-Being-a-Good-Boy-in-Spring-Festival"><span class="toc-text">4.博弈论练习 - C - Being a Good Boy in Spring Festival</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-3"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-3"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-3"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-3"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%8D%9A%E5%BC%88%E8%AE%BA%E7%BB%83%E4%B9%A0-D-Fibonacci-again-and-again"><span class="toc-text">5.博弈论练习 - D - Fibonacci again and again</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-4"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-4"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-4"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-4"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%BB%83%E4%B9%A0-C-The-Suspects"><span class="toc-text">6.并查集练习 - C - The Suspects</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-5"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-5"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-5"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-5"><span class="toc-text">通过代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-%E5%B9%B6%E6%9F%A5%E9%9B%86%E7%BB%83%E4%B9%A0-D-Find-them-Catch-them"><span class="toc-text">7.并查集练习 - D - Find them, Catch them</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%A0%87%E7%AD%BE-6"><span class="toc-text">题目标签</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0-6"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E8%A7%A3%E6%9E%90-6"><span class="toc-text">题目解析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E4%BB%A3%E7%A0%81-6"><span class="toc-text">通过代码</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/08/21/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B06/" title="22暑期ACM集训周记06"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="22暑期ACM集训周记06"/></a><div class="content"><a class="title" href="/2022/08/21/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B06/" title="22暑期ACM集训周记06">22暑期ACM集训周记06</a><time datetime="2022-08-21T15:00:00.000Z" title="发表于 2022-08-21 23:00:00">2022-08-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/15/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B05/" title="22暑期ACM集训周记05"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="22暑期ACM集训周记05"/></a><div class="content"><a class="title" href="/2022/08/15/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B05/" title="22暑期ACM集训周记05">22暑期ACM集训周记05</a><time datetime="2022-08-15T15:00:00.000Z" title="发表于 2022-08-15 23:00:00">2022-08-15</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/07/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B04/" title="22暑期ACM集训周记04"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/img/noritake/12.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="22暑期ACM集训周记04"/></a><div class="content"><a class="title" href="/2022/08/07/ACM%E5%91%A8%E8%AE%B0/%E6%9A%91%E6%9C%9FACM%E5%91%A8%E8%AE%B04/" title="22暑期ACM集训周记04">22暑期ACM集训周记04</a><time datetime="2022-08-07T15:00:00.000Z" title="发表于 2022-08-07 23:00:00">2022-08-07</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2021 - 2022 By 吴振扬</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">Hi, welcome to my <a target="_blank" rel="noopener" href="https://wzy1033.github.io/">blog</a>!</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.jsdelivr.net/npm/pangu/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.2
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container:not\([display]\)').forEach(node => {
+            const target = node.parentNode
+            if (target.nodeName.toLowerCase() === 'li') {
+              target.parentNode.classList.add('has-jax')
+            } else {
+              target.classList.add('has-jax')
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script><script>function loadLivere () {
+  if (typeof LivereTower === 'object') {
+    window.LivereTower.init()
+  }
+  else {
+    (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+  }
+}
+
+if ('Livere' === 'Livere' || !false) {
+  if (false) btf.loadComment(document.getElementById('lv-container'), loadLivere)
+  else loadLivere()
+}
+else {
+  function loadOtherComment () {
+    loadLivere()
+  }
+}</script></div><script async src="//at.alicdn.com/t/font_2804883_dzrzjhfbfv.js"></script><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="false"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html>
